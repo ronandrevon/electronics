@@ -5,6 +5,7 @@ Electronic related projects
 Digital simuator of a digital circuits such as chips, processors, microcontrollers,etc ...  
 
 ### Appolo 181 4-bit processor
+The apollo181 is a home made processor created by [Gianluca G.](#https://apollo181.wixsite.com/apollo181)
 
 - **appolo.circ** : The digital circuit
 - **PROM**        : instruction set image as flashed in PROM
