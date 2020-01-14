@@ -17,22 +17,24 @@ appolo_folder=os.path.dirname(__file__)
 ################################################################################
 #                    This is where the PROM entries are defined 
 ################################################################################
-#dat_sel : 0=data, 1=register, 2=input
+#dat_sel : 0=input, 1=data, 2=register
 #alu_sel : 0=bus_out, 1=add_bus_w, 2=cmp_bus
 seq=2       #number of clock cycles for 1 instructions
 instruction_bits = {
 ########### data_sel,   out_w,   acc_w,    sw_w,   reg_w, jmp0    , jmpIF  , alu_sel,
-'JUMP'   : ['0'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '10'    , '0'*seq, '0'*seq,] ,
-'JUMPZ'  : ['0'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '0'*seq , '10'   , '0'*seq,] ,
-'LOADWL' : ['0'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
-'LOADWR' : ['1'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
-'LOADRW' : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '01'   , '0'*seq , '0'*seq, '0'*seq,] ,
-'ADDWR'  : ['1'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
-'ADDWL'  : ['0'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
-'IN'     : ['2'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
-'OUT'    : ['0'*seq , '10'   , '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'NOPE'   : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'JUMP'   : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '10'    , '0'*seq, '0'*seq,] ,
+'JUMPZ'  : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '0'*seq , '10'   , '0'*seq,] ,
+'LOADWL' : ['1'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'LOADWR' : ['2'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'LOADRW' : ['2'*seq , '0'*seq, '0'*seq, '0'*seq, '01'   , '0'*seq , '0'*seq, '0'*seq,] ,
+'ADDWR'  : ['2'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
+'ADDWL'  : ['1'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
+'IN'     : ['0'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'OUT'    : ['1'*seq , '10'   , '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 }
-signal_bits = ['data_sel','out_w','acc_w','sw_w','reg_w','jmp0','jmpIF','alu_sel']
+signal_bits = {'data_sel':2,'out_w':1,'acc_w':1,'sw_w':1,'reg_w':1,'jmp0':1,'jmpIF':1,'alu_sel':4}
+signals,bits = list(signal_bits.keys()),list(signal_bits.values())
 instruction_set = instruction_bits.keys()
 
 
@@ -43,10 +45,10 @@ instruction_set = instruction_bits.keys()
 #### get the hex codes for the sequencer for each instruction
 hex_codes = dict.fromkeys(instruction_set)#,[[]]*9))
 for instr in instruction_set : 
-    hex_codes[instr] = [];    #print(red+instr+black)
+    hex_codes[instr] = [];   print(red+instr+black)
     for i in range(seq):
-        bin_code = ''.join([format(int(bit[i]),'b') for bit in instruction_bits[instr]])
-        hex_code =  hex(int(bin_code,2))[2:].zfill(3); #print(hex_code)
+        bin_code = ''.join([format(int(val[i]),'b').zfill(nbits) for (val,nbits) in zip(instruction_bits[instr],bits)])
+        hex_code =  hex(int(bin_code,2))[2:].zfill(3); print(bin_code,hex_code)
         hex_codes[instr] += [hex_code]
 hex_codes = list(hex_codes.values())
 
@@ -62,10 +64,10 @@ print('PROM saved:\n'+green+PROM_file+black)
 
 
 #### create the dataframe containing all infos
-df_PROM = pd.DataFrame(columns=['instruction','opcode']+signal_bits+['hex_codes'])
+df_PROM = pd.DataFrame(columns=['instruction','opcode']+signals+['hex_codes'])
 df_PROM['instruction']=instruction_set
 df_PROM['opcode']=[s for s in string.hexdigits[:len(instruction_set)]]
-df_PROM[signal_bits]=list(instruction_bits.values())
+df_PROM[signals]=list(instruction_bits.values())
 df_PROM['hex_codes']=hex_codes
 df_PROM = df_PROM.set_index('instruction')
 # save to pickle
