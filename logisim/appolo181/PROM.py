@@ -19,7 +19,7 @@ appolo_folder=os.path.dirname(__file__)
 ################################################################################
 #dat_sel : 0=data, 1=register, 2=input
 #alu_sel : 0=bus_out, 1=add_bus_w, 2=cmp_bus
-seq=2       #clock cycles for 1 instructions
+seq=2       #number of clock cycles for 1 instructions
 instruction_bits = {
 ########### data_sel,   out_w,   acc_w,    sw_w,   reg_w, jmp0    , jmpIF  , alu_sel,
 'JUMP'   : ['0'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '10'    , '0'*seq, '0'*seq,] ,
@@ -35,7 +35,12 @@ instruction_bits = {
 signal_bits = ['data_sel','out_w','acc_w','sw_w','reg_w','jmp0','jmpIF','alu_sel']
 instruction_set = instruction_bits.keys()
 
-#### get the hex code for the sequencer for each instruction
+
+
+#################################################################################
+#                     Write PROM and PROM.pkl(Should not need to change)      
+#################################################################################
+#### get the hex codes for the sequencer for each instruction
 hex_codes = dict.fromkeys(instruction_set)#,[[]]*9))
 for instr in instruction_set : 
     hex_codes[instr] = [];    #print(red+instr+black)
