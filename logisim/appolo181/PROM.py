@@ -1,3 +1,4 @@
+#! /usr/bin/python3
 '''
 This module generates 
     dat/PROM     : The PROM image as used in APPOLO.circ
@@ -9,7 +10,7 @@ Notes :
 
 import pandas as pd
 import numpy as np
-import os,string    
+import os,string
 from glob_colors import*
 appolo_folder=os.path.dirname(__file__)
 
@@ -18,18 +19,20 @@ appolo_folder=os.path.dirname(__file__)
 #                    This is where the PROM entries are defined 
 ################################################################################
 #dat_sel : 0=input, 1=data, 2=register
-#alu_sel : 0=bus_out, 1=add_bus_w, 2=cmp_bus
+#alu_sel : 0=bus_out/cmp, 1=add_bus_w
 seq=2       #number of clock cycles for 1 instructions
 instruction_bits = {
 ########### data_sel,   out_w,   acc_w,    sw_w,   reg_w, jmp0    , jmpIF  , alu_sel,
 'NOPE'   : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 'JUMP'   : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '10'    , '0'*seq, '0'*seq,] ,
 'JUMPZ'  : ['1'*seq , '0'*seq, '0'*seq, '0'*seq, '0'*seq, '0'*seq , '10'   , '0'*seq,] ,
-'LOADWL' : ['1'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
-'LOADWR' : ['2'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 'LOADRW' : ['2'*seq , '0'*seq, '0'*seq, '0'*seq, '01'   , '0'*seq , '0'*seq, '0'*seq,] ,
-'ADDWR'  : ['2'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
-'ADDWL'  : ['1'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '10'   ,] ,
+'LOADWR' : ['2'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'CMPWR'  : ['2'*seq , '0'*seq, '0'*seq, '01'   , '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'ADDWR'  : ['2'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '11'   ,] ,
+'LOADWL' : ['1'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'CMPWL'  : ['1'*seq , '0'*seq, '0'*seq, '01'   , '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
+'ADDWL'  : ['1'*seq , '0'*seq, '01'   , '01'   , '0'*seq, '0'*seq , '0'*seq, '11'   ,] ,
 'IN'     : ['0'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 'OUT'    : ['1'*seq , '10'   , '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 }
