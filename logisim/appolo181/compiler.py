@@ -1,3 +1,8 @@
+'''
+compiler.py *file*.apl [-v] [-e]
+    example : 
+./compiler.py programs/add.apl -e
+'''
 #! /usr/bin/python3
 import numpy as np
 import pandas as pd

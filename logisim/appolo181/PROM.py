@@ -36,10 +36,24 @@ instruction_bits = {
 'IN'     : ['0'*seq , '0'*seq, '01'   , '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 'OUT'    : ['1'*seq , '10'   , '0'*seq, '0'*seq, '0'*seq, '0'*seq , '0'*seq, '0'*seq,] ,
 }
+descriptions = {
+'NOPE'   : 'no operation', 
+'JUMP'   : 'jump to location acc*16 + dat',
+'JUMPZ'  : 'jump to location acc*16 + dat if status flag Z=1',
+'LOADRW' : 'load register R=DAT with accumulator W',
+'LOADWR' : 'load accumulator W with register R=DAT',
+'CMPWR'  : 'Sets status flag Z=1 if accumulator W equals register R=DAT',
+'ADDWR'  : 'Adds accumulator W with register R=DAT. Sets status flag C=1 if carry arises',
+'LOADWL' : 'load accumulator W with litteral DAT',
+'CMPWL'  : 'Sets status flag Z=1 if accumulator W equals litteral DAT',
+'ADDWL'  : 'Adds accumulator W with litteral DAT. Sets status flag C=1 if carry arises',
+'IN'     : 'Load accumulator W with input IN=DAT',
+'OUT'    : 'Write to output OUT=DAT with accumulator W',
+}
+
 signal_bits = {'data_sel':2,'out_w':1,'acc_w':1,'sw_w':1,'reg_w':1,'jmp0':1,'jmpIF':1,'alu_sel':4}
 signals,bits = list(signal_bits.keys()),list(signal_bits.values())
 instruction_set = instruction_bits.keys()
-
 
 
 #################################################################################
@@ -67,11 +81,12 @@ print('PROM saved:\n'+green+PROM_file+black)
 
 
 #### create the dataframe containing all infos
-df_PROM = pd.DataFrame(columns=['instruction','opcode']+signals+['hex_codes'])
+df_PROM = pd.DataFrame(columns=['instruction','opcode','hex_codes','description']+signals)
 df_PROM['instruction']=instruction_set
 df_PROM['opcode']=[s for s in string.hexdigits[:len(instruction_set)]]
 df_PROM[signals]=list(instruction_bits.values())
 df_PROM['hex_codes']=hex_codes
+df_PROM['description']=descriptions.values()
 df_PROM = df_PROM.set_index('instruction')
 # save to pickle
 PROM_pkl=appolo_folder+'/dat/PROM.pkl'
