@@ -8,9 +8,9 @@ import numpy as np
 import pandas as pd
 import sys,os
 from glob_colors import*
-
 appolo_folder=os.path.dirname(__file__)
 df_PROM=pd.read_pickle(appolo_folder+'/dat/PROM.pkl')
+
 
 #### def : main program
 def compile_program(program_file,v=False,e=False):
@@ -88,7 +88,7 @@ def write_out(program_file,obj_str) :
 ###### run 
 if __name__== '__main__':
     args=sys.argv
-    if len(args) : 
+    if len(args)>1 : 
         program_file = args[1]
         verbose = '-v' in args or '--verbose' in args
         encode  = '-e' in args or '--encode' in args

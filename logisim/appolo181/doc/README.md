@@ -1,8 +1,21 @@
 # Apollo181
 
+1. [features](#features)
 1. [Getting started](#getting-started)
 1. [Instruction set](#instruction-set)
 1. [Folders and files structure](#folders-and-files-structure)
+
+## Features
+
+The apollo181 is a home made processor created by [Gianluca G.](https://apollo181.wixsite.com/apollo181). 
+Here is an inspired Logisim simulator version of it. 
+General features : 
+
+- 11 instruction set
+- 4x4 bit registers 
+- 256 instructions of program memory each 8 bit wide
+- 4 input ports and 4 output ports
+- conditional and unconditional program branching instructions
 
 ## Getting started
 
