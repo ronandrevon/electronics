@@ -1,78 +1,101 @@
 #! /usr/bin/python3
 import numpy as np
-from PIC19F84A_dat import*
-## Program format : 
-# byte : op(str) w(dec) data(dec) status=Z/DC/C(bin)
-# bit  : op(str) data(bin) bit(dec) 
-# jump : op(str)
-# litteral : op(str) w(dec) data(dec) status=Z/DC/C(bin)
-# control  : op(str) 
-
+import pandas as pd
+from glob_colors import*
+import os,sys
+'''
+   Program format : 
+byte     : op(str) address(<80) d(boolean)
+bit      : op(str) address(<80) bit(<8)
+jump     : op(str) address(<1024)
+litteral : op(str) data(<255)
+control  : op(str)
+'''
+PIC_folder=os.path.dirname(__file__)
+df_PROM=pd.read_pickle(PIC_folder+'/dat/PROM.pkl')
+instruction_type = df_PROM['type']
+opcode  = df_PROM['opcode']
 
 #### def : main program
-def compile_program(program_file):
+def compile_program(program_file,v=False,e=False):
     lines    = load_program(program_file)
-    obj_str  = compile_lines(lines)
+    lines,lab,var = preprocess_lines(lines,verbose)
+    obj_str  = compile_lines(lines,lab,var,e)
     obj_file = write_out(program_file,obj_str)
     return obj_file
 
-
-def encode_instr(instr_str):
+########
+def preprocess_lines(lines,verbose=False) : 
+    labels,l,var,instructions = dict(),0,[],[]
+    for line in lines : 
+        line = line.split("#")[0].split(':')
+        if len(line)>1 : 
+            lab,instr = line
+        else : 
+            lab,instr = '',line[0]
+        op = instr.split(" ")[0]
+        if op in df_PROM.index : 
+            if lab : labels[lab] = l
+            instructions.append(instr);l+=1
+            if instruction_type[op] in ['byte','bit'] : 
+                var.append( instr.split(" ")[1])
+    var = dict(zip(np.unique(var),range(len(var))))
+    if verbose : 
+        print(yellow+'program preprocess : ')
+        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
+        print(yellow+'labels:'+blue,labels,yellow+'variables:'+blue,var,black)
+    return instructions,labels,var
+    
+def encode_instr(instr_str,labels,var):
     op = instr_str.split(" ")[0]
-    if instruction_type[op] == 'byte' : 
-        op,w,dat,st = instr_str.split(" ")
-        dat,w,st = bin_s(dat),bin_s(w),st
-        opcode   = instruction_set[op]
-        op7      ='0'
+    if instruction_type[op] == 'byte' :
+        op,f,d = instr_str.split(" ")[:3]
+        instr = opcode[op] + d + bin_s(var[f],7)
+    elif instruction_type[op] == 'mem' :
+        op,f = instr_str.split(" ")[:2]
+        instr = opcode[op] + bin_s(var[f],7)
     elif instruction_type[op] == 'bit' :
-        op,dat,bit = instr_str.split(" ");bit = bin_s(bit,3)
-        dat,w,st = dat, bin_s('0'),'000'
-        opcode   = instruction_set[op]+bit[1:2]
-        op7      = bit[0]
+        op,f,b = instr_str.split(" ")[:3]
+        instr = opcode[op] + bin_s(b,3) + bin_s(var[f],7)
     elif instruction_type[op] == 'jump' :
-        dat,w,st = bin_s('0'),bin_s('0'),bin_s('0',3)
-        opcode = instruction_set[op]
-        op7    = '0'
+        op,a = instr_str.split(" ")[:2]
+        instr = opcode[op] + bin_s(labels[a],11)
     elif instruction_type[op] == 'litteral' :
-        op,dat,w,st = instr_str.split(" ")
-        dat,w,st = bin_s(dat),bin_s(w),st
-        opcode   = instruction_set[op]
-        op7      ='0'
+        op,k = instr_str.split(" ")[:2]
+        instr = opcode[op] + bin_s(k,8)
     elif instruction_type[op] == 'control' :
-        dat,w,st = bin_s('0'),bin_s('0'),bin_s('0',3)
-        opcode = instruction_set[op]
-        op7    = '0'
-    else :
-        dat,st,w,opcode,op7=[""]*5
-    instr = op7 + opcode + w + st + dat
+        instr = opcode[op]
     return instr
- 
+    
 def load_program(program_file):
     program = open(program_file,'r')
-    lines=program.read().splitlines();#print(lines)
+    lines=program.read().splitlines()
     program.close()
     return lines
     
-def compile_lines(lines,v=False):
+def compile_lines(lines,labels,var,e=False):
     obj_str=""
+    if e : 
+        print(green+'Compiled program : ')
+        print(yellow+'labels:'+blue,labels,yellow+', variables:'+blue,var,black)
+        print(yellow+'instruction'.ljust(15)+'opcode operand   hex'+black)
     for instr_str in lines:
-        if v : print(instr_str)
-        instr_bin = encode_instr(instr_str);
-        if v : print(instr_bin)
-        if any(instr_bin):
-            instr_hex = format(int(instr_bin,2),'x').zfill(7);
-            if v : print(instr_hex)
-            obj_str += instr_hex+"\n"           
+        if instr_str == 'END' : break
+        instr_bin = encode_instr(instr_str,labels,var)
+        instr_hex = format(int(instr_bin,2),'x').zfill(4);
+        if e : print(red+instr_str.ljust(15) + green+instr_bin[:6]+' '+instr_bin[6:] + '  '+magenta+instr_hex+black)
+        obj_str += instr_hex+"\n"
     return obj_str
     
-def write_out(program_file,obj_str):
-    obj_file = program_file.replace('txt','out')
+def write_out(program_file,obj_str) : 
+    folder = os.path.dirname(os.path.realpath(program_file))
+    obj_file = folder+'/bin/'+os.path.basename(program_file).replace('.pic','.out')
     obj = open(obj_file,"w")
     obj.write("v2.0 raw\n")
     obj.write(obj_str)
-    obj.close()  
-    print('%s' %(obj_file))     
-    return obj_file   
+    obj.close()
+    print(green+"compilation sucess. binary file in :\n"+yellow+'%s' %(obj_file)+black)
+    return obj_file
 
 #### def : misc 
 def bin_s(x,fill=8):
@@ -81,8 +104,11 @@ def bin_s(x,fill=8):
 ##################################################################
 ###### run 
 if __name__== '__main__':
-    program_file = ""
-    if program_file=="" :
-        program_file = 'program_test.txt'
-    obj_file=compile_program(program_file)
-    print('compilation sucess' ) 
+    args=sys.argv
+    if len(args) > 1: 
+        program_file = args[1]
+        verbose = '-v' in args or '--verbose' in args
+        encode  = '-e' in args or '--encode' in args
+    else : 
+        program_file = PIC_folder+'/dat/test.apl'
+    obj_file=compile_program(program_file,v=verbose,e=encode)

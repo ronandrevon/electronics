@@ -1,0 +1,10 @@
+# Basic varing of the memory
+MOVLW 75     # write 75 to accu 
+MOVWF var0   # moving value in register 'var0'
+MOVLW 255    # write 255 to accu 
+MOVWF var1   # moving value in register 'var2'
+MOVF var1 1  # Check Z=1 since W=var2 from previous instruction 
+MOVF var0 0  # moving back value in var1 to accu(checking Z=0)'
+CLRF var0    # clear var1
+CLRF var1    # clear var2
+CLRW         # clear accu
