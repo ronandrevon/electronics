@@ -39,7 +39,7 @@ def preprocess_lines(lines,verbose=False) :
             instructions.append(instr);l+=1
             if instruction_type[op] in ['byte','bit'] : 
                 var.append( instr.split(" ")[1])
-    var = dict(zip(np.unique(var),range(len(var))))
+    var = dict(zip(np.unique(var),np.arange(len(var))+12))
     if verbose : 
         print(yellow+'program preprocess : ')
         print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);

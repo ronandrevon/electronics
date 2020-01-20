@@ -3,8 +3,10 @@
 1. [Development](#development-status)
 1. [features](#features)
 1. [Getting started](#getting-started)
+2. [Memory](#memory)
 1. [Instruction set](#instruction-set)
 1. [Folders and files structure](#folders-and-files-structure)
+1. [Architecture details](#architecture-details)
 
 ## Develpment status
 
@@ -21,6 +23,7 @@
     - [ ] change on ports **RB4:RB7**
     - [ ] timer **TMR0** time out
     - [ ] data **EEPROM** write complete
+
 
 ## Features
 
@@ -98,6 +101,42 @@ A binary file **bin/test.out** has been produced. Then :
 ![RAM](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/doc/PIC16F84A.png)
 
 
+## Memory
+
+The memory is composed of : 
+- 68 general purpose registers (**GPR**)
+- 2 banks of 12 Special Function Registers (**SFR**) although only 15 physical special function registers exist. The SFR are as follows : 
+
+Name    | bits                                   |hex addr | bank | Description                 
+-       |-                                       |-   |-    |-                                  
+INDF*   | -                                      | 00 | 0,1 | Used for indirect addressing
+TMR0    | TMR0:7-0                               | 01 | 0   | Timer value
+OPTION  | RBPU,INTEDG,T0CS,T0SE,PSA,PS:2-0       | 01 | 1   | Option configuration register 
+PCL     | PC:7-0                                 | 02 | 0,1 | Low order bits of the program counter
+STATUS  | xxRP0,TO,PD,Z,DC,C                     | 03 | 0,1 | Status word register
+FSR     | xFSR:6-0                               | 04 | 0,1 | File Select register (pointer)
+PORTA   | xxPORTA:4-0                            | 05 | 0   | I/O Port A
+TRISA   | xxxTRISA:4-0                           | 05 | 1   | I/O Port A Data direction
+PORTB   | PORTB:7-0                              | 06 | 0   | I/O Port B
+TRISB   | TRISB:7-0                              | 06 | 1   | I/O Port B Data direction
+EEDATA  | EEDATA:7-0                             | 08 | 0   | EEPROM Data register
+EECON1  | xxxEEIF,WRERR,WREN,WR,RD               | 08 | 1   | EEPROM configuration register
+EEADDR  | EEADDR:7-0                             | 09 | 0   | EEPROM address register
+EECON2* | -                                      | 07 | 1   | EEPROM write sequence register
+PCLATH  | xxxPC:12-8                             | 0a | 0,1 | high order bits of the program counter
+INTCON  | GIE,EEIE,T0IE,INTE,RBIE,T0IF,INTF,RBIF | 0b | 0,1 | Interrupt configuration register
+
+\* Not physical registers
+
+Those bits have the following meaning : 
+
+register    | bit    | Read,Write,reset | Description                
+-           |-       |-      |-                                      
+**STATUS**  |        |       |
+            |RP0     | R/W-0 | Bank select bit
+            |TO/PD   | R  -1 | Time out(0 when WDT occur), power down (0 if SLEEP)
+            |Z,DC,C  | R/W-x | Zero, Digit carry/borrow, borrow
+
 
 ## Instruction set
 
@@ -158,5 +197,6 @@ SUBLW   | 11 1100kkkkkkkk|k  |Subtract W from literal|CDZ
 XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 
 
-  - **decode_hex.py**  : decode heaxdecimal instruction into human readable ascii instruction 
-  - **cmp_results.py** : compares results from out and expected output
+
+
+  ## Architecture details
