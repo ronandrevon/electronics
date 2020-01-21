@@ -1,29 +1,17 @@
 # PIC16F84A
 
-1. [Development](#development-status)
-1. [features](#features)
+1. [Features](#features)
 1. [Getting started](#getting-started)
 2. [Memory](#memory)
 1. [Instruction set](#instruction-set)
 1. [Folders and files structure](#folders-and-files-structure)
 1. [Architecture details](#architecture-details)
+1. [Test Status](#test-status)
 
-## Develpment status
 
-- [ ] Complete PROM.py
-- [ ] Update compiler.py
-- [ ] **Memory** read and write access : MOVWF, MOVF, MOVLW / CLRF,CLRW #5
-- [ ] **ALU** operations : NOP, ADDWF, ANDWF, COMF, DECF, INCF, IORWF, RLF, RRF, SUBWF, SWAPF, XORWF  /  BCF, BSF /  ADDLW, ANDLW, IORLW, SUBLW, XORLW #19
-- [ ] **Call** functions + push : CALL, GOTO #2
-- [ ] **Skip** operations : BTFSC, BTFSS, DECFSZ, INCFSZ #4
-- [ ] **Return** from functions + pop : RETFIE, RETLW, RETURN #3
-- [ ] **Sleep** mode : CLRWDT, SLEEP #2
-- [ ] **Interrupts** : 
-    - [ ] external asynchronous on port **RB0/INT**
-    - [ ] change on ports **RB4:RB7**
-    - [ ] timer **TMR0** time out
-    - [ ] data **EEPROM** write complete
-
+This architecture is inspired by the 
+[PIC16F84A microcontroller](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/doc/PIC16F84A.pdf)
+designed by microchip.
 
 ## Features
 
@@ -31,7 +19,7 @@ General features :
 
 - 35 instruction set
 - 1024 instructions of program memory each 14 bit wide
-- 68x8 bit General purpose registers
+- 68 General purpose registers  each 8 bit wide
 - 13 I/O ports : RA0-RA4 and RB0-RB7
 
 Special features : 
@@ -51,25 +39,6 @@ Special features :
 - **EEPROM** access (variable read/write access time)
 - SLEEP mode and watchdog timer(**WDT**) to resume
 
-
-BUS : 
-- There should always be a value on the BUS but even when not used
-- There cannot be any conflct on bus since only memory registers are allowed on it and a single address is used in the RAM 
-
-Special registers : 
-- Accessible for R/W independently from the BUS 
-- READ  : PCL,PCLATH,TIMR0,STATUS,FSR, INTCON, EECON1,EEADDR, PORTA,TRISA
-- WRITE : STATUS,INTCON, EEDATA,EECON1
-
-SFR configuration
-STATUS config : 
-Read Status  => ST addresss, RAM-Q on BUS 
-Write Status => ST address(direct or indirect), STATUS on BUS 
-->Carry ou ALU => D in Buffer, Buffer Q on BUS,ST address Mult-in, 
-->Carry in ALU => Buffer Q on BUS, ST address Mult-in 
-
-INTCON config : 
-Asynchronous interrupt : 
 
 
 ## Getting started
@@ -122,7 +91,7 @@ TRISB   | TRISB:7-0                              | 06 | 1   | I/O Port B Data di
 EEDATA  | EEDATA:7-0                             | 08 | 0   | EEPROM Data register
 EECON1  | xxxEEIF,WRERR,WREN,WR,RD               | 08 | 1   | EEPROM configuration register
 EEADDR  | EEADDR:7-0                             | 09 | 0   | EEPROM address register
-EECON2* | -                                      | 07 | 1   | EEPROM write sequence register
+EECON2* | -                                      | 09 | 1   | EEPROM write sequence register
 PCLATH  | xxxPC:12-8                             | 0a | 0,1 | high order bits of the program counter
 INTCON  | GIE,EEIE,T0IE,INTE,RBIE,T0IF,INTF,RBIF | 0b | 0,1 | Interrupt configuration register
 
@@ -132,17 +101,23 @@ Those bits have the following meaning :
 
 register    | bit    | Read,Write,reset | Description                
 -           |-       |-      |-                                      
-**STATUS**  |        |       |
-            |RP0     | R/W-0 | Bank select bit
-            |TO/PD   | R  -1 | Time out(0 when WDT occur), power down (0 if SLEEP)
-            |Z,DC,C  | R/W-x | Zero, Digit carry/borrow, borrow
+**STATUS**  | RP0                     | R/W-0   | Bank select bit
+            | TO/PD                   | R  -1   | Time out(0 when WDT occur), power down (0 if SLEEP)
+            | Z,DC,C                  | R/W-x   | Zero, Digit carry/borrow, carry/borrow
+**OPTION**  | RBPU,INTEDG             | R/W-1   | Port pull up enable, interrupt edge select(1=rising edge)
+            | T0CS,T0SE,PSA           | R/W-1   | TMR0 Clock Source Select(1=RA4), TMR0 Source Edge Select Prescaler assignement(1=WDT)
+            | PS:2-0                  | R/W-1   | Prescaler rate rate=2^PS
+**INTCON**  | GIE,EEIE,T0IE,INTE,RBIE | R/W-0   | Global, EEPROM,TIMR0,RB0,RB7-4 interrupt enable bits
+            | T0IF,INTF,RBIF          | R/W-0   | Timer overflow, external, Port change interupt flags(must be cleared in software)
+**EECON1**  | EEIF,WRERR,WREN         | R/W-0x0 | EEPROM end write complete interrupt, write error, Write enable
+            | WR,RD                   | R/S-0   | EEPROM write, read command (automatically cleared in hardware)
 
 
 ## Instruction set
 
 Each instruction is of the form : 
 
-    label : INSTRUCTION [operand] #Some comment
+    label:INSTRUCTION [operand] #Some comment
 where : 
 - **label** is optionally used to refer to a specific location for jump instructions
 - **INSRUCTION** must belong to the instruction set below
@@ -197,6 +172,52 @@ SUBLW   | 11 1100kkkkkkkk|k  |Subtract W from literal|CDZ
 XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 
 
+## Architecture details
 
+BUS : 
+- There should always be a value on the BUS but even when not used
+- There cannot be any conflct on bus since only memory registers are allowed on it and a single address is used in the RAM 
 
-  ## Architecture details
+Special registers : 
+- Accessible for R/W independently from the BUS 
+- READ  : PCL,PCLATH,TIMR0,STATUS,FSR, INTCON, EECON1,EEADDR, PORTA,TRISA
+- WRITE : STATUS,INTCON, EEDATA,EECON1
+
+SFR configuration
+STATUS config : 
+Read Status  => ST addresss, RAM-Q on BUS 
+Write Status => ST address(direct or indirect), STATUS on BUS 
+->Carry ou ALU => D in Buffer, Buffer Q on BUS,ST address Mult-in, 
+->Carry in ALU => Buffer Q on BUS, ST address Mult-in 
+
+INTCON config : 
+Asynchronous interrupt : 
+
+## Test status
+
+- [x] compiler *compiler.py* working 
+- [x] No errors during NOP
+- [x] **Memory** access instructions test : 
+    - [mem_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mem_test.txt)
+    - MOVWF, MOVF, MOVLW,  CLRF,CLRW 
+- [x] **ALU**, **skip**(operation marked by \*) and **GOTO** operations : #19
+    - [alu_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mult_test.txt)
+    - ADDWF,DECFSZ\*, GOTO, BSF,BTFSC\*
+- [x] **Call**, **Return** stack involving instructions : 
+    - [func_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/func_test.txt)
+    - CALL, RETURN, RETLW
+- [ ] **Interrupts** and return from interrupts : 
+    - [ ] external asynchronous on port **RB0/INT**
+    - [ ] change on ports **RB4:RB7**
+    - [ ] timer **TMR0** time out
+    - [ ] data **EEPROM** write complete
+    - [int_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/int_test.txt)
+    - RETFIE
+- [ ] indirect addressing and write to special function register including bank select RP0
+- [ ] I/O port state change 
+- [ ] Timer prescaler and clock select 
+- [ ] **EEPROM** read/write access
+- [ ] **Sleep** mode :
+    - CLRWDT, SLEEP #2
+    - Reset on time out 
+    - Reset on interrupt with/without gie

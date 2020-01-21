@@ -8,13 +8,14 @@ import os,sys
 byte     : op(str) address(<80) d(boolean)
 bit      : op(str) address(<80) bit(<8)
 jump     : op(str) address(<1024)
-litteral : op(str) data(<255)
+literal  : op(str) data(<255)
 control  : op(str)
 '''
 PIC_folder=os.path.dirname(__file__)
 df_PROM=pd.read_pickle(PIC_folder+'/dat/PROM.pkl')
 instruction_type = df_PROM['type']
 opcode  = df_PROM['opcode']
+SFR      = ['INDF','OPTION','PCL','STATUS','FSR','PCLATH','INTCON','TRISA','TRISB','EECON1','EECON2','PORTA','PORTB','EEDATA','EEADR']
 
 #### def : main program
 def compile_program(program_file,v=False,e=False):
@@ -36,15 +37,20 @@ def preprocess_lines(lines,verbose=False) :
         op = instr.split(" ")[0]
         if op in df_PROM.index : 
             if lab : labels[lab] = l
-            instructions.append(instr);l+=1
-            if instruction_type[op] in ['byte','bit'] : 
+            instructions.append(instr.replace('  ',''));l+=1
+            if instruction_type[op] in ['byte','bit','mem'] : 
                 var.append( instr.split(" ")[1])
-    var = dict(zip(np.unique(var),np.arange(len(var))+12))
+    var = [v for v in np.unique(var) if v not in SFR]
+    var_dict = dict(zip(['INDF','OPTION','PCL','STATUS','FSR','PCLATH','INTCON'],list(range(7))+[10,11]))
+    var_dict.update(dict(zip(['TRISA','TRISB','EECON1','EECON2'],[5,6,8,9])))
+    var_dict.update(dict(zip(['PORTA','PORTB','EEDATA','EEADR' ],[5,6,8,9])))
+    var_dict.update(dict(zip(np.unique(var),np.arange(len(var))+12)))
     if verbose : 
         print(yellow+'program preprocess : ')
         print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
         print(yellow+'labels:'+blue,labels,yellow+'variables:'+blue,var,black)
-    return instructions,labels,var
+        print(yellow+'instructions '+red,np.unique([i.split(' ')[0] for i in instructions]),black)
+    return instructions,labels,var_dict
     
 def encode_instr(instr_str,labels,var):
     op = instr_str.split(" ")[0]
@@ -60,7 +66,7 @@ def encode_instr(instr_str,labels,var):
     elif instruction_type[op] == 'jump' :
         op,a = instr_str.split(" ")[:2]
         instr = opcode[op] + bin_s(labels[a],11)
-    elif instruction_type[op] == 'litteral' :
+    elif instruction_type[op] == 'literal' :
         op,k = instr_str.split(" ")[:2]
         instr = opcode[op] + bin_s(k,8)
     elif instruction_type[op] == 'control' :
@@ -76,14 +82,19 @@ def load_program(program_file):
 def compile_lines(lines,labels,var,e=False):
     obj_str=""
     if e : 
+        labels_hex = dict.copy(labels)
+        for lab in labels : labels_hex[lab] = '0x'+format(labels[lab],'x').zfill(2)
+        gpr_var   = [v for v in var if v not in set(SFR) ]
+        variables = dict(zip(gpr_var, [(var[v]-12,'0x'+format(var[v],'x').zfill(2)) for v in gpr_var]))
         print(green+'Compiled program : ')
-        print(yellow+'labels:'+blue,labels,yellow+', variables:'+blue,var,black)
-        print(yellow+'instruction'.ljust(15)+'opcode operand   hex'+black)
-    for instr_str in lines:
+        print(yellow+'GPR variables :'+blue,variables,black)
+        print(yellow+'labels        :'+blue,labels_hex)
+        print(yellow+'addr  '+'instruction'.ljust(20)+'opcode operand   hex_instr'+black)
+    for instr_str,l in zip(lines,range(len(lines))):
         if instr_str == 'END' : break
         instr_bin = encode_instr(instr_str,labels,var)
         instr_hex = format(int(instr_bin,2),'x').zfill(4);
-        if e : print(red+instr_str.ljust(15) + green+instr_bin[:6]+' '+instr_bin[6:] + '  '+magenta+instr_hex+black)
+        if e : print(blue+('0x'+format(l,'x').zfill(2)).ljust(6)+red+instr_str.ljust(20) + green+instr_bin[:6]+' '+instr_bin[6:] + '  '+magenta+instr_hex+black)
         obj_str += instr_hex+"\n"
     return obj_str
     
