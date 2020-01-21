@@ -1,0 +1,23 @@
+##################################################################################
+##Mutliply 2 integers 
+## Basic testing of ALU, goto and skip and portA read operations through the 
+## Since we perform simple 8 bit logic the maximum result including carry can only
+## be 511=0x1ff
+##################################################################################
+#initialize registers with selected operands : 
+##  a*b=24*11=264   =   0x18*0xb=0x108
+MOVLW 24
+MOVWF a
+MOVLW 11
+MOVWF b
+MOVWF i             # the counter starts at operand b
+CLRW
+# mulitplication loop
+loop:ADDWF a 0
+DECFSZ i 1          # decrement counter i
+GOTO loop           # loop until counter reaches 0
+MOVWF c             # store result in register c
+# add carry to result
+BTFSC STATUS 2      #fetch carry bit2 of STATUS
+BSF d 0             #set register d with carry if was set 
+END

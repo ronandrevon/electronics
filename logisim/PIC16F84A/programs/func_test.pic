@@ -1,0 +1,21 @@
+##################################################################################
+## Testing function calls 
+##################################################################################
+#init a=1,b-2
+NOP
+MOVLW 1
+MOVWF a
+MOVLW 2
+MOVWF b
+#call functions 
+CALL add        #W=a+b=3
+CALL func       #W=0
+GOTO end        #The program terminates here 
+######################
+# Function definitions
+add:MOVF a 0
+ADDWF b 0
+RETURN
+#
+func:RETLW 0
+end:NOP
