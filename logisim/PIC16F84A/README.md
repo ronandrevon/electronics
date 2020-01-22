@@ -2,7 +2,7 @@
 
 1. [Features](#features)
 1. [Getting started](#getting-started)
-2. [Memory](#memory)
+2. [Memory and special registers](#memory)
 1. [Instruction set](#instruction-set)
 1. [Folders and files structure](#folders-and-files-structure)
 1. [Architecture details](#architecture-details)
@@ -19,7 +19,7 @@ General features :
 
 - 35 instruction set
 - 1024 instructions of program memory each 14 bit wide
-- 68 General purpose registers  each 8 bit wide
+- 68 General purpose registers each 1 byte wide
 - 13 I/O ports : RA0-RA4 and RB0-RB7
 
 Special features : 
@@ -36,7 +36,7 @@ Special features :
     - TIMR0,  PORTA, PORTB, EEADR,  EEDATA
     - OPTION, TRISA, TRISB, EECON1, EECON2
 - PCL/PCLATH jump addressing (for virtual functions)
-- **EEPROM** access (variable read/write access time)
+- 68 bytes of **EEPROM** memory (variable read/write access time)
 - SLEEP mode and watchdog timer(**WDT**) to resume
 
 
@@ -74,6 +74,7 @@ A binary file **bin/test.out** has been produced. Then :
 
 The memory is composed of : 
 - 68 general purpose registers (**GPR**)
+- 68 bytes of **EEPROM** memory
 - 2 banks of 12 Special Function Registers (**SFR**) although only 15 physical special function registers exist. The SFR are as follows : 
 
 Name    | bits                                   |hex addr | bank | Description                 
@@ -140,8 +141,8 @@ CLRF    | 00 00011fffffff|f  |Clear f|Z
 CLRW    | 00 000100000000| - |Clear W|Z
 COMF    | 00 1001dfffffff|f,d|Complement f|Z
 DECF    | 00 0011dfffffff|f,d|Decrement f|Z
-DECFSZ  | 00 1011dfffffff|f,d|Decrement f, Skip if 0|Z
-INCF    | 00 1010dfffffff|f,d|Increment f|
+DECFSZ  | 00 1011dfffffff|f,d|Decrement f, Skip if 0|
+INCF    | 00 1010dfffffff|f,d|Increment f|Z
 INCFSZ  | 00 1111dfffffff|f,d|Increment f, Skip if 0|
 IORWF   | 00 0100dfffffff|f,d|Inclusive OR W with f|Z
 MOVF    | 00 1000dfffffff|f,d|Move f|Z
@@ -206,17 +207,19 @@ Asynchronous interrupt :
 - [x] **Call**, **Return** stack involving instructions : 
     - [func_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/func_test.txt)
     - CALL, RETURN, RETLW
-- [ ] **Interrupts** and return from interrupts : 
-    - [ ] external asynchronous on port **RB0/INT**
-    - [ ] change on ports **RB4:RB7**
-    - [ ] timer **TMR0** time out
-    - [ ] data **EEPROM** write complete
-    - [int_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/int_test.txt)
-    - RETFIE
-- [ ] indirect addressing and write to special function register including bank select RP0
+- [ ] **EEPROM** read/write access, indirect addressing, bank select
+    - [eeprom_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/eeprom_test.txt)
+    - read,write to eeprom
+    - STATUS:RP0, FSR write
 - [ ] I/O port state change 
 - [ ] Timer prescaler and clock select 
-- [ ] **EEPROM** read/write access
+- [ ] **Interrupts** and return from interrupts : 
+    - [int_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/int_test.txt)
+    - external asynchronous on port **RB0/INT**
+    - change on ports **RB4:RB7**
+    - timer **TMR0** time out
+    - data **EEPROM** write complete
+    - RETFIE
 - [ ] **Sleep** mode :
     - CLRWDT, SLEEP #2
     - Reset on time out 

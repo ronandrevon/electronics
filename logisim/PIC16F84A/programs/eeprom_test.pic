@@ -1,0 +1,29 @@
+##################################################################################
+## Testing EEPROM
+##################################################################################
+NOP
+###########################
+#### write 10 to address 1
+# data=10, address=1 
+MOVLW 1
+MOVWF EEADR
+MOVLW 10
+MOVWF EEDATA
+# enable and start write sequence on the EEPROM 
+BSF STATUS 5      # Bank 1
+BSF EECON1 2        # enable write
+BSF EECON1 1        # write sequence 
+BCF STATUS 5        # Bank 0
+############################
+CLRW
+############################
+# Read value at address 1 
+BCF STATUS 5        #Bank 0
+MOVLW 0
+MOVWF EEADR
+BSF STATUS 5        #Bank 1
+BSF EECON1 0        #read
+BCF STATUS 5        #Bank 0
+MOVF EEDATA 0       #move data to W (W=10)
+############################
+END
