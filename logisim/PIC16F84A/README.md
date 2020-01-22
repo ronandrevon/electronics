@@ -69,7 +69,7 @@ where
 A binary file **bin/test.out** has been produced. Then :
 - **Load image the binary file programs/bin/test.out into the **FLASH program memory of the PIC19F84A simulator.**
 - **MCLR** button used to start (or restarted) the execution.
-- **input/output** are the 8 RB7:RB0 and 5 RA4:RA0 pins. By default they are inputs which can be changed during execution with *BSF TRISA (TRISB) \[bit\]* for PORTA (PORTB) 
+- **input/output** are the 8 RB7:RB0 and 5 RA4:RA0 pins. By default they are outputs which can be changed during execution with *BSF TRISA (TRISB) \[bit\]* for PORTA (PORTB) 
 - Use **Ctrl+E** to enable the clock to tick.
 - Use **Ctrl+K** to start ticking (change tick frequency in Simulate -> Tick Frequency).
 - Use **Ctrl+T** to tick one at a time
@@ -253,7 +253,7 @@ Asynchronous interrupt :
     - read&write to TMR0 register, write to OPTION register
 
 ### IO
-- [ ] **I/O** port, state change : 
+- [x] **I/O** port, state change : 
     - [io_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/io_test.txt)
     - read values on PORTA,PORTB
     - write values on portA, PORTB

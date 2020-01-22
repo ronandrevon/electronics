@@ -1,0 +1,17 @@
+##################################################################################
+## IO ports testing
+##################################################################################
+NOP
+### Ports are outputs by default which means they can be written by the CPU
+BCF STATUS 5    #  Bank 0
+BSF PORTA 4     # write to pin RA4
+MOVLW 243
+MOVWF PORTB     # write a number on PORTB
+# Change pins RA4 and PORTB to inputs
+BSF STATUS 5    #  Bank 1
+BSF TRISA 4
+MOVLW 255
+MOVWF TRISB
+# read values on portB
+BCF STATUS 5    #  Bank 0
+MOVF PORTB 0 #read value on PORTB
