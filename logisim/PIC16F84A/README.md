@@ -245,7 +245,7 @@ Asynchronous interrupt :
     - write to STATUS:RP0 , write to EEADR, read&write sync&async to EEDAT, read&written sync&async to EECON1
 
 ### TMR0
-- [ ] **TMR0** Timer clock select, prescaler
+- [x] **TMR0** Timer clock select, prescaler
     - [tmr0_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tmr0_test.txt)
     - External clock select T0CS and edge select via T0SE
     - prescaler assignement via PSA and prescaler rate change via PS2:PS0

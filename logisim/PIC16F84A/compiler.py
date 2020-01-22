@@ -15,7 +15,7 @@ PIC_folder=os.path.dirname(__file__)
 df_PROM=pd.read_pickle(PIC_folder+'/dat/PROM.pkl')
 instruction_type = df_PROM['type']
 opcode  = df_PROM['opcode']
-SFR      = ['INDF','OPTION','PCL','STATUS','FSR','PCLATH','INTCON','TRISA','TRISB','EECON1','EECON2','PORTA','PORTB','EEDATA','EEADR']
+SFR     = ['INDF','TMR0','OPTION','PCL','STATUS','FSR','PORTA','TRISA','PORTB','TRISB','EEDATA','EECON1','EEADR','EECON2','PCLATH','INTCON']
 
 #### def : main program
 def compile_program(program_file,v=False,e=False):
@@ -41,9 +41,9 @@ def preprocess_lines(lines,verbose=False) :
             if instruction_type[op] in ['byte','bit','mem'] : 
                 var.append( instr.split(" ")[1])
     var = [v for v in np.unique(var) if v not in SFR]
-    var_dict = dict(zip(['INDF','OPTION','PCL','STATUS','FSR','PCLATH','INTCON'],list(range(7))+[10,11]))
-    var_dict.update(dict(zip(['TRISA','TRISB','EECON1','EECON2'],[5,6,8,9])))
-    var_dict.update(dict(zip(['PORTA','PORTB','EEDATA','EEADR' ],[5,6,8,9])))
+    var_dict = dict(zip(['INDF','PCL','STATUS','FSR','PCLATH','INTCON'],[0,2,3,4,10,11]))
+    var_dict.update(dict(zip(['TMR0'  ,'TRISA','TRISB','EECON1','EECON2'],[1,5,6,8,9])))
+    var_dict.update(dict(zip(['OPTION','PORTA','PORTB','EEDATA','EEADR' ],[1,5,6,8,9])))
     var_dict.update(dict(zip(np.unique(var),np.arange(len(var))+12)))
     if verbose : 
         print(yellow+'program preprocess : ')
