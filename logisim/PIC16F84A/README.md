@@ -2,12 +2,21 @@
 
 1. [Features](#features)
 1. [Getting started](#getting-started)
-2. [Memory and special registers](#memory)
+2. [Memory and special registers](#memory-and-special-registers)
 1. [Instruction set](#instruction-set)
-1. [Folders and files structure](#folders-and-files-structure)
+1. [Examples](#examples)
+1. [Folders and files](#folders-and-files-structure)
 1. [Architecture details](#architecture-details)
 1. [Test Status](#test-status)
-
+    - [memory](#memory)
+    - [indirect addressing](#fsr)
+    - [eeprom](#eeprom)
+    - [timer](#tmr0)
+    - [function calls](#call)
+    - [io](#io)
+    - [interrupts](#memory)
+    - [mult](#mult)
+    - [sleep mode](#sleep)
 
 This architecture is inspired by the 
 [PIC16F84A microcontroller](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/doc/PIC16F84A.pdf)
@@ -33,7 +42,7 @@ Special features :
 - Indirect addresssing mode through the File Select Register (**FSR**) which is essentially a pointer
 - 15 hardware Special Function Registers (**SFR**) addressing 
     - PCL/PCLATH, STATUS, FSR, INTCON
-    - TIMR0,  PORTA, PORTB, EEADR,  EEDATA
+    - TMR0,  PORTA, PORTB, EEADR,  EEDATA
     - OPTION, TRISA, TRISB, EECON1, EECON2
 - PCL/PCLATH jump addressing (for virtual functions)
 - 68 bytes of **EEPROM** memory (variable read/write access time)
@@ -58,19 +67,18 @@ where
 - -v : verbose option
 
 A binary file **bin/test.out** has been produced. Then :
-- load the binary file **programs/bin/test.out** into the **program RAM memory** of the Apollo simulator.
-- The execution can be started using **START** button.
-- The 4 **inputs** can be modified at will.
-- The **RESET** button can be used at anytime to reset the CPU to original state.
+- **Load image the binary file programs/bin/test.out into the **FLASH program memory of the PIC19F84A simulator.**
+- **MCLR** button used to start (or restarted) the execution.
+- **input/output** are the 8 RB7:RB0 and 5 RA4:RA0 pins. By default they are inputs which can be changed during execution with *BSF TRISA (TRISB) \[bit\]* for PORTA (PORTB) 
 - Use **Ctrl+E** to enable the clock to tick.
-- Use **Ctrl+K** to start ticking.
+- Use **Ctrl+K** to start ticking (change tick frequency in Simulate -> Tick Frequency).
 - Use **Ctrl+T** to tick one at a time
-- Monitor the state of each aspects of the CPU through the probes of the *Monitoring* panel. In particular, the output of the computation can be seen in the *MEMORY/Outputs* tab.
+- Monitor the state of each aspects of the CPU through the various probes.
 
 ![RAM](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/doc/PIC16F84A.png)
 
 
-## Memory
+## Memory and special registers
 
 The memory is composed of : 
 - 68 general purpose registers (**GPR**)
@@ -173,6 +181,14 @@ SUBLW   | 11 1100kkkkkkkk|k  |Subtract W from literal|CDZ
 XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 
 
+## Examples
+### Multiplcation
+- [x] Multiplication program : 
+    - [mult_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mult_test.txt)
+    - ADDWF, BSF, DECFSZ, ,BTFSC, GOTO
+    - STATUS registers Z and C bits read during execution
+
+
 ## Architecture details
 
 BUS : 
@@ -198,29 +214,64 @@ Asynchronous interrupt :
 
 - [x] compiler *compiler.py* working 
 - [x] No errors during NOP
+
+### Memory
 - [x] **Memory** access instructions test : 
     - [mem_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mem_test.txt)
     - MOVWF, MOVF, MOVLW,  CLRF,CLRW 
-- [x] **ALU**, **skip**(operation marked by \*) and **GOTO** operations : #19
-    - [alu_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mult_test.txt)
-    - ADDWF,DECFSZ\*, GOTO, BSF,BTFSC\*
+    - STATUS register written async
+    - General purpose registers involved only
+
+### FSR
+- [ ] **FSR** File select register indirect addressing feature, **ALU**, **skip**, **GOTO** operations : 
+    - [fsr_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/fsr_test.txt)
+    - INCF alu operations
+    - BTFSS skip based operations
+    - GOTO branch operation
+    - read, write to FSR
+    - indirect addressing read&write
+    - STATUS register Z
+
+### Call
 - [x] **Call**, **Return** stack involving instructions : 
     - [func_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/func_test.txt)
     - CALL, RETURN, RETLW
-- [ ] **EEPROM** read/write access, indirect addressing, bank select
+
+### EEPROM
+- [x] **EEPROM** read/write access, **bank selection** :
     - [eeprom_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/eeprom_test.txt)
-    - read,write to eeprom
-    - STATUS:RP0, FSR write
-- [ ] I/O port state change 
-- [ ] Timer prescaler and clock select 
+    - read&write to EEPROM
+    - BCF
+    - write to STATUS:RP0 , write to EEADR, read&write sync&async to EEDAT, read&written sync&async to EECON1
+
+### TMR0
+- [ ] **TMR0** Timer clock select, prescaler
+    - [tmr0_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tmr0_test.txt)
+    - External clock select T0CS and edge select via T0SE
+    - prescaler assignement via PSA and prescaler rate change via PS2:PS0
+    - CLRWDT
+    - read&write to TMR0 register, write to OPTION register
+
+### IO
+- [ ] **I/O** port, state change : 
+    - [io_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/io_test.txt)
+    - read values on PORTA,PORTB
+    - write values on portA, PORTB
+    - check INTF and RBIF when both input and output state
+    - read, write to PORTA,PORTB registers, write to TRISA,TRISB registers
+
+### INT
 - [ ] **Interrupts** and return from interrupts : 
     - [int_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/int_test.txt)
     - external asynchronous on port **RB0/INT**
     - change on ports **RB4:RB7**
     - timer **TMR0** time out
     - data **EEPROM** write complete
-    - RETFIE
+    - RETFIE,SWAPF
+    - read,write sync&async to intcon register
+
+### SLEEP
 - [ ] **Sleep** mode :
-    - CLRWDT, SLEEP #2
+    - SLEEP
     - Reset on time out 
     - Reset on interrupt with/without gie
