@@ -261,7 +261,7 @@ Asynchronous interrupt :
     - read, write to PORTA,PORTB registers, write to TRISA,TRISB registers
 
 ### INT
-- [ ] **Interrupts** and return from interrupts : 
+- [x] **Interrupts** and return from interrupts : 
     - [int_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/int_test.txt)
     - external asynchronous on port **RB0/INT**
     - change on ports **RB4:RB7**

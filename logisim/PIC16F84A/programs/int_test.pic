@@ -1,0 +1,91 @@
+##################################################################################
+## Testing interrupts
+##      TMR0 time out interrupt
+##      EEPROM write complete interrupt
+##      PORTB:7-4 interrupt change on
+##      PORTB:0 set interrupt
+##################################################################################
+# The first 3 instructions are dummy instructions since 
+# the interrupt vector is located at address 0004
+NOP
+NOP
+NOP
+GOTO start
+########################################################################
+# Interrupt vector where the PC falls back after an interrupt
+########################################################################
+#push W and STATUS
+MOVWF w_tmp
+SWAPF STATUS 0
+MOVWF sw_tmp
+#interrupt service routine(only clearing flags at this stage)
+BTFSC INTCON 0      #RBIF
+BCF INTCON 0        #   CALL int_rbif
+BTFSC INTCON 1      #INTF
+BCF INTCON 1        #   CALL int_intf
+BTFSC INTCON 2      #T0IF
+BCF INTCON 2        #   CALL int_t0if
+BSF STATUS 7        # Bank 1
+BTFSC EECON1 4      #EEIF
+CALL int_eeif
+BCF STATUS 7        # Bank 0
+#pop W and STATUS
+SWAPF STATUS 0
+MOVWF STATUS
+SWAPF w_tmp 1
+SWAPF w_tmp 0
+RETFIE
+#
+#
+#
+########################################################################
+#The program starts here
+########################################################################
+start:NOP           # enabling interrupts GIE,EEIE,T0IE,INTE,RBIE,0,0,0
+MOVLW 248
+MOVWF INTCON
+########## TMR0 init #############
+# setting timer to 10 instructions
+MOVLW 253
+MOVWF TMR0          # the timer is set at 255-253=2
+########## EEPROM init ############################################
+# data=10, address=1, enable and start write sequence on the EEPROM 
+MOVLW 1
+MOVWF EEADR
+MOVLW 10
+MOVWF EEDATA
+BSF STATUS 5        #  Bank 1
+BSF EECON1 2        # enable write
+BSF EECON1 1        # write sequence 
+BCF STATUS 5        #  Bank 0
+##### PORTB interrupts input mode #################
+MOVLW 255
+BSF STATUS 5        #  Bank 1
+MOVWF TRISB
+BCF STATUS 5        #  Bank 0
+#
+#
+#
+##############################
+# let the program go forever
+end:GOTO end
+##############################
+#
+#
+#
+########################
+# Individual interrupt service routines
+########################
+# EEPROM interrupt routine
+int_eeif:NOP
+BCF EECON1 4 # clear interrupt flag
+BCF STATUS 7        #Bank 0
+MOVLW 1
+MOVWF EEADR
+BSF STATUS 7        #Bank 1
+BSF EECON1 0        #read
+BCF STATUS 7        #Bank 0
+MOVF EEDATA 0       #move data to W (W=10)
+RETURN
+# TMR0 interrupt routine
+END
