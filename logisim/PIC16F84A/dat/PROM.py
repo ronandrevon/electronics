@@ -70,16 +70,17 @@ df_PROM['hex_codes'] = hex_codes
 
 #### save PROM
 hex_codes_str = ''.join([' '.join(h)+'\n'  for h in hex_codes])
-PROM_file = PIC_folder+'/dat/PROM'
+PROM_file = PIC_folder+'/PROM'
 obj = open(PROM_file,"w");
 obj.write("v2.0 raw\n")
 obj.write(hex_codes_str)
 obj.close();
 print('PROM saved:\n'+green+PROM_file+black)
+print('PROM saved:\n'+green+PROM_file+black)
 
 # save to pickle
-PROM_pkl=PIC_folder+'/dat/PROM.pkl'
-df_PROM.to_pickle(PIC_folder+'/dat/PROM.pkl')
-print('pickle saved:\n'+green+PIC_folder+'/dat/PROM.pkl'+black)
+PROM_pkl=PIC_folder+'/PROM.pkl'
+df_PROM.to_pickle(PIC_folder+'/PROM.pkl')
+print('pickle saved:\n'+green+PIC_folder+'/PROM.pkl'+black)
 
-#df_PROM[['opcode','description','status']].to_csv('dat/PROM.csv',sep='|')
+#df_PROM[['opcode','description','status']].to_csv('PROM.csv',sep='|')
