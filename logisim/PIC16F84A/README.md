@@ -7,7 +7,7 @@
 1. [Examples](#examples)
 1. [Folders and files](#folders-and-files-structure)
 1. [Architecture details](#architecture-details)
-1. [Test Status](#test-status)
+1. [Tests](#tests)
     - [memory](#memory)
     - [indirect addressing](#fsr)
     - [eeprom](#eeprom)
@@ -44,7 +44,7 @@ Special features :
     - PCL/PCLATH, STATUS, FSR, INTCON
     - TMR0,  PORTA, PORTB, EEADR,  EEDATA
     - OPTION, TRISA, TRISB, EECON1, EECON2
-- PCL/PCLATH jump addressing (for virtual functions)
+- PCL/PCLATH jump addressing (for virtual functions) *not working*
 - 68 bytes of **EEPROM** memory (variable read/write access time)
 - SLEEP mode and watchdog timer(**WDT**) to resume
 
@@ -56,20 +56,20 @@ The simulator can be lauchned with :
 
     logisim PIC16F84A.circ &
 A program can be written in an assembler ***file*.pic** file (see 
-[Instruction set](#instruction-set) to learn this basic language and 
-[test.pic](#) to see an test example).
+[Instruction set](#instruction-set) to learn the basic language and 
+[Examples](#examples) or [Tests](#tests) to see examples).
 The programs can be compiled using the compiler *compiler.py* written in
 python3. For example the test program would be compiled with : 
 
-    ./compiler.py programs/test.pic -e -v
+    ./compiler.py programs/mult_test.pic -e -v
 where 
 - -e : option to display encoded information (highly recommended)
 - -v : verbose option
 
-A binary file **bin/test.out** has been produced. Then :
-- **Load image the binary file programs/bin/test.out into the **FLASH program memory of the PIC19F84A simulator.**
-- **MCLR** button used to start (or restarted) the execution.
+A binary file **programs/bin/mutl_test.out** has been produced. Then :
+- **Load the binary file programs/bin/mult_test.out into the FLASH program memory of the PIC19F84A simulator (write click on 8KB ROM and select 'Load Image...').**
 - **input/output** are the 8 RB7:RB0 and 5 RA4:RA0 pins. By default they are outputs which can be changed during execution with *BSF TRISA (TRISB) \[bit\]* for PORTA (PORTB) 
+- Use **Ctrl+R** or **MCLR** button used to start (or restarted) the execution.
 - Use **Ctrl+E** to enable the clock to tick.
 - Use **Ctrl+K** to start ticking (change tick frequency in Simulate -> Tick Frequency).
 - Use **Ctrl+T** to tick one at a time
@@ -191,26 +191,25 @@ XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 
 ## Architecture details
 
+The RAM is presented below : 
+
+![RAM](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/doc/PIC16F84A_RAM.png)
+
 BUS : 
-- There should always be a value on the BUS but even when not used
-- There cannot be any conflct on bus since only memory registers are allowed on it and a single address is used in the RAM 
 
-Special registers : 
-- Accessible for R/W independently from the BUS 
-- READ  : PCL,PCLATH,TIMR0,STATUS,FSR, INTCON, EECON1,EEADDR, PORTA,TRISA
-- WRITE : STATUS,INTCON, EEDATA,EECON1
+- There is always a value on the BUS even when not used
+- Special registers accessible for read and write via BUS 
+- write happens on time 2 of the sequencer
 
-SFR configuration
-STATUS config : 
-Read Status  => ST addresss, RAM-Q on BUS 
-Write Status => ST address(direct or indirect), STATUS on BUS 
-->Carry ou ALU => D in Buffer, Buffer Q on BUS,ST address Mult-in, 
-->Carry in ALU => Buffer Q on BUS, ST address Mult-in 
+Special registers asynchronous R/W : 
 
-INTCON config : 
-Asynchronous interrupt : 
+- Accessible for R/W from device logic, independently of the BUS
+- **READ**  : OPTION, STATUS, FSR, INTCON, EEDAT,EEADR,EECON1, PORTA,TRISA,PORTB,TRISB, PCL(not used),PCLATH(not used)
+- **WRITE** : TMR0  , STATUS,      INTCON, EEDAT,      EECON1, PORTA,      PORTB
 
-## Test status
+
+
+## Tests
 
 - [x] compiler *compiler.py* working 
 - [x] No errors during NOP
