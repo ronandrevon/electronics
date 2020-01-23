@@ -42,8 +42,8 @@
       <a name="valign" val="base"/>
     </tool>
   </lib>
-  <lib desc="file#lib/PIC_registers.circ" name="7"/>
-  <lib desc="file#lib/Arithmetic_logic_units.circ" name="8"/>
+  <lib desc="file#/home/ronan/Documents/github/electronics/logisim/PIC16F84A/lib/PIC_registers.circ" name="7"/>
+  <lib desc="file#/home/ronan/Documents/github/electronics/logisim/PIC16F84A/lib/Arithmetic_logic_units.circ" name="8"/>
   <main name="PIC16F84A"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -368,175 +368,62 @@
     <wire from="(590,100)" to="(600,100)"/>
     <wire from="(660,60)" to="(800,60)"/>
     <wire from="(550,540)" to="(560,540)"/>
-    <comp lib="0" loc="(460,250)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(410,470)" name="Tunnel">
-      <a name="width" val="3"/>
-      <a name="label" val="EE_W"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(530,480)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="opcode"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="1" loc="(540,360)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(240,430)" name="Tunnel">
+    <comp lib="0" loc="(590,100)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="FSR reg"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(970,150)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp loc="(250,70)" name="Program counter"/>
-    <comp lib="0" loc="(920,200)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="EEADR"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(580,230)" name="Constant">
-      <a name="width" val="7"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp loc="(890,100)" name="EEPROM"/>
-    <comp lib="0" loc="(500,340)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="none"/>
-    </comp>
-    <comp lib="8" loc="(650,470)" name="ALU"/>
-    <comp lib="0" loc="(280,430)" name="Tunnel">
-      <a name="width" val="32"/>
-      <a name="label" val="SFR_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(120,400)" name="Tunnel">
-      <a name="label" val="push"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(990,200)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="24"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="2"/>
-      <a name="bit1" val="2"/>
-      <a name="bit3" val="2"/>
-      <a name="bit4" val="2"/>
-      <a name="bit5" val="2"/>
-      <a name="bit6" val="2"/>
-      <a name="bit7" val="2"/>
-      <a name="bit8" val="1"/>
-      <a name="bit9" val="1"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="1"/>
-      <a name="bit12" val="1"/>
-      <a name="bit13" val="1"/>
-      <a name="bit14" val="1"/>
-      <a name="bit15" val="1"/>
-      <a name="bit16" val="0"/>
-      <a name="bit17" val="0"/>
-      <a name="bit18" val="0"/>
-      <a name="bit19" val="0"/>
-      <a name="bit20" val="0"/>
-      <a name="bit21" val="0"/>
-      <a name="bit22" val="0"/>
-      <a name="bit23" val="0"/>
-    </comp>
-    <comp lib="0" loc="(360,90)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="width" val="13"/>
-      <a name="value" val="0x4"/>
-    </comp>
-    <comp lib="0" loc="(360,400)" name="Splitter">
-      <a name="fanout" val="5"/>
-      <a name="incoming" val="7"/>
-      <a name="appear" val="right"/>
-      <a name="bit5" val="4"/>
-      <a name="bit6" val="4"/>
-    </comp>
-    <comp lib="4" loc="(160,110)" name="ROM">
-      <a name="addrWidth" val="13"/>
-      <a name="dataWidth" val="14"/>
-      <a name="contents">addr/data: 13 14
-0 0 0 2816 8d e03 8c 180b
-100b 188b 108b 190b 110b 1783 1a08 2028
-1383 e03 83 e8d e0d 9 0 30ff
-1683 86 1283 30f8 8b 30fd 81 3001
-89 300a 88 1783 1508 1488 1383 2827
-0 1208 1383 3001 89 1783 1408 1383
-808 8
-</a>
-    </comp>
-    <comp lib="0" loc="(100,290)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(90,500)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="SEQ"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(904,471)" name="Text">
-      <a name="text" val="IO ports"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
-    </comp>
-    <comp lib="0" loc="(560,600)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(88,30)" name="Text">
-      <a name="text" val="Flash Program"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
-    </comp>
-    <comp lib="0" loc="(240,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="push "/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(990,200)" name="Tunnel">
       <a name="width" val="24"/>
       <a name="label" val="ROM_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(710,140)" name="Tunnel">
-      <a name="width" val="13"/>
-      <a name="label" val="IO_in"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(650,550)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="south"/>
+    <comp lib="1" loc="(740,40)" name="NOT Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(570,600)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(120,340)" name="Tunnel">
+      <a name="label" val="result_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(970,510)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+      <a name="label" val="PORTA_out"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="1" loc="(10,190)" name="AND Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(308,196)" name="Text">
+      <a name="text" val="8 level stack"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
+    </comp>
+    <comp lib="0" loc="(190,530)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+    </comp>
+    <comp lib="0" loc="(410,410)" name="Tunnel">
+      <a name="label" val="reg_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(240,450)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="SW"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(970,130)" name="Tunnel">
@@ -544,160 +431,24 @@
       <a name="label" val="EE_W"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="0" loc="(100,180)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(400,330)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="SW"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(40,180)" name="Tunnel">
-      <a name="label" val="result_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(420,350)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="jump"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(120,480)" name="Tunnel">
-      <a name="label" val="sleep"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="6" loc="(309,298)" name="Text">
-      <a name="text" val="Control and signals"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
-    </comp>
-    <comp lib="0" loc="(680,170)" name="Tunnel">
-      <a name="label" val="RAM_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(930,610)" name="Constant"/>
-    <comp lib="0" loc="(690,470)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(180,530)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="SW_IN"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(980,550)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="RB7:0"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(760,40)" name="Tunnel">
-      <a name="label" val="RAM_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="1" loc="(740,40)" name="NOT Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(900,580)" name="Splitter">
-      <a name="incoming" val="8"/>
-      <a name="appear" val="right"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="0"/>
-    </comp>
-    <comp lib="0" loc="(710,120)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="SW_IN"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(640,50)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="RAM Addr"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(120,340)" name="Tunnel">
-      <a name="label" val="result_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(870,500)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="13"/>
-      <a name="label" val="IO_in"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(920,320)" name="Tunnel">
-      <a name="label" val="rst"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(919,139)" name="Text">
-      <a name="text" val="64x8"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(500,390)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="none"/>
-    </comp>
-    <comp lib="0" loc="(530,460)" name="Probe">
-      <a name="label" val="op7"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(1020,470)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="4"/>
-      <a name="label" val="RA3:0"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(700,590)" name="Tunnel">
+    <comp lib="0" loc="(360,160)" name="Probe">
       <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="1" loc="(740,50)" name="Controlled Buffer">
-      <a name="width" val="8"/>
-      <a name="control" val="left"/>
-    </comp>
-    <comp lib="0" loc="(120,320)" name="Tunnel">
-      <a name="label" val="int"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="label" val="SP"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(610,450)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="label" val="Z,DC,C"/>
-      <a name="labelloc" val="north"/>
+    <comp lib="0" loc="(690,480)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="label" val="sw_w"/>
+      <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
+    <comp lib="4" loc="(600,560)" name="Register"/>
+    <comp lib="0" loc="(630,500)" name="Tunnel">
+      <a name="label" val="skip"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp loc="(890,350)" name="Timing"/>
     <comp lib="0" loc="(400,350)" name="Splitter">
       <a name="fanout" val="1"/>
       <a name="incoming" val="5"/>
@@ -707,268 +458,34 @@
       <a name="bit3" val="none"/>
       <a name="bit4" val="none"/>
     </comp>
-    <comp lib="0" loc="(880,350)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="tmr_w"/>
+    <comp lib="0" loc="(930,610)" name="Constant"/>
+    <comp lib="0" loc="(300,540)" name="Tunnel">
+      <a name="label" val="wdt"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(580,410)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="Accu"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(880,370)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="WDT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(220,340)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="width" val="21"/>
-      <a name="label" val="TMR0_IO"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(120,580)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(350,230)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(980,590)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="7"/>
-      <a name="label" val="RB7:1"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(240,350)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="TMR0"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(180,580)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="6" loc="(65,371)" name="Text">
-      <a name="text" val="Instruction"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(880,500)" name="Splitter">
-      <a name="incoming" val="13"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="1"/>
-      <a name="bit6" val="1"/>
-      <a name="bit7" val="1"/>
-      <a name="bit8" val="1"/>
-      <a name="bit9" val="1"/>
-      <a name="bit10" val="1"/>
-      <a name="bit11" val="1"/>
-      <a name="bit12" val="1"/>
-    </comp>
-    <comp lib="0" loc="(690,480)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="label" val="sw_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(120,420)" name="Tunnel">
-      <a name="label" val="pop"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(990,170)" name="Tunnel">
-      <a name="label" val="EEIF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(410,410)" name="Tunnel">
-      <a name="label" val="reg_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(50,200)" name="Tunnel">
-      <a name="label" val="skip"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(1040,630)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="RB0/INT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(970,110)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="EECON1_out"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(660,210)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="RAM Addr"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(860,140)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="EEDATA"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(900,300)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="TMR0"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(400,350)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="jumps"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(960,470)" name="Splitter">
-      <a name="incoming" val="5"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit2" val="1"/>
-      <a name="bit3" val="1"/>
-      <a name="bit4" val="0"/>
-    </comp>
-    <comp lib="0" loc="(900,410)" name="Probe">
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(870,520)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(590,80)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="13"/>
-      <a name="label" val="PCL-LATH"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(900,160)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 6"/>
-    </comp>
-    <comp lib="0" loc="(710,100)" name="Tunnel">
-      <a name="width" val="16"/>
-      <a name="label" val="ROM_in"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="5" loc="(950,610)" name="Button">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp loc="(250,160)" name="Stack counter"/>
-    <comp lib="0" loc="(240,390)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="PORTB_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="6" loc="(310,80)" name="Text">
-      <a name="text" val="Program counter"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="0" loc="(240,490)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="OPT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(660,360)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="Literal or Bus"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp loc="(890,350)" name="Timing"/>
-    <comp lib="0" loc="(740,440)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(653,116)" name="Text">
-      <a name="text" val="Registers"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="0" loc="(80,490)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="step"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(320,120)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="return"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
-    </comp>
-    <comp lib="0" loc="(380,110)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="int"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
-    </comp>
-    <comp lib="0" loc="(890,320)" name="Tunnel">
-      <a name="facing" val="east"/>
+    <comp lib="0" loc="(270,50)" name="Tunnel">
       <a name="label" val="SEQ"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="0" loc="(60,610)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="OSC1/CLKIN"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(990,70)" name="Tunnel">
-      <a name="width" val="16"/>
-      <a name="label" val="ROM_in"/>
+    <comp lib="0" loc="(300,560)" name="Tunnel">
+      <a name="label" val="WDT"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="6" loc="(456,173)" name="Text">
-      <a name="text" val="Interruptor"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="0" loc="(240,470)" name="Tunnel">
-      <a name="facing" val="east"/>
+    <comp lib="0" loc="(740,450)" name="Tunnel">
       <a name="width" val="8"/>
-      <a name="label" val="INTCON"/>
+      <a name="label" val="SW"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="6" loc="(52,53)" name="Text">
-      <a name="text" val="1K x 14"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 18"/>
+    <comp lib="0" loc="(170,550)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="clrwdt"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="0" loc="(380,390)" name="Tunnel">
-      <a name="facing" val="south"/>
+    <comp lib="0" loc="(580,230)" name="Constant">
       <a name="width" val="7"/>
-      <a name="label" val="control"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+      <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(630,500)" name="Tunnel">
-      <a name="label" val="skip"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(400,330)" name="Splitter">
+    <comp lib="0" loc="(970,170)" name="Splitter">
       <a name="fanout" val="1"/>
       <a name="incoming" val="8"/>
       <a name="appear" val="center"/>
@@ -976,22 +493,12 @@
       <a name="bit1" val="none"/>
       <a name="bit2" val="none"/>
       <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="none"/>
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
     </comp>
-    <comp lib="6" loc="(600,217)" name="Text">
-      <a name="text" val="INDF"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp loc="(430,200)" name="Interrupt"/>
-    <comp lib="0" loc="(430,600)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="acc_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(500,360)" name="Splitter">
+    <comp lib="0" loc="(500,380)" name="Splitter">
       <a name="fanout" val="1"/>
       <a name="incoming" val="14"/>
       <a name="appear" val="center"/>
@@ -1003,28 +510,45 @@
       <a name="bit5" val="none"/>
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
       <a name="bit13" val="0"/>
     </comp>
-    <comp lib="0" loc="(660,280)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="Indirect Addr"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="0" loc="(260,570)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="10unsigned"/>
+      <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(700,590)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
+    <comp lib="0" loc="(480,210)" name="Tunnel">
+      <a name="label" val="EEIF"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="4" loc="(710,550)" name="Register">
-      <a name="trigger" val="falling"/>
+    <comp lib="0" loc="(400,330)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="SW"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="6" loc="(610,484)" name="Text">
+      <a name="text" val="ALU"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(920,300)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(640,410)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="Data"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(280,430)" name="Splitter">
       <a name="facing" val="west"/>
@@ -1062,154 +586,43 @@
       <a name="bit30" val="3"/>
       <a name="bit31" val="3"/>
     </comp>
-    <comp lib="6" loc="(63,397)" name="Text">
-      <a name="text" val=" Decode "/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(657,98)" name="Text">
-      <a name="text" val="RAM File "/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="0" loc="(170,550)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="clrwdt"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(270,50)" name="Tunnel">
-      <a name="label" val="SEQ"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(670,560)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="result_w"/>
+    <comp lib="0" loc="(460,250)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(30,210)" name="Probe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(510,270)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="0"/>
-      <a name="bit6" val="0"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="none"/>
-    </comp>
-    <comp lib="0" loc="(40,260)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(120,460)" name="Tunnel">
-      <a name="label" val="clrwdt"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="4" loc="(600,560)" name="Register"/>
-    <comp loc="(110,320)" name="InstructionDecode"/>
-    <comp lib="0" loc="(970,170)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="8"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-    </comp>
-    <comp lib="2" loc="(650,220)" name="Multiplexer">
-      <a name="facing" val="north"/>
-      <a name="width" val="7"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(620,170)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 6"/>
-    </comp>
-    <comp lib="6" loc="(65,551)" name="Text">
-      <a name="text" val="Timing"/>
+    <comp lib="6" loc="(309,298)" name="Text">
+      <a name="text" val="Control and signals"/>
       <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="0" loc="(880,350)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="tmr_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(420,220)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="int"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(410,390)" name="Tunnel">
       <a name="label" val="tmr_w"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(120,360)" name="Tunnel">
-      <a name="label" val="reg_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(350,50)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(730,450)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="8"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="0"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-    </comp>
-    <comp lib="0" loc="(40,580)" name="Clock">
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(200,560)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="sleep"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(907,33)" name="Text">
+    <comp lib="6" loc="(921,122)" name="Text">
       <a name="text" val="EEPROM"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(710,80)" name="Tunnel">
-      <a name="width" val="7"/>
-      <a name="label" val="control"/>
+    <comp lib="0" loc="(710,120)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="SW_IN"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(300,540)" name="Tunnel">
-      <a name="label" val="wdt"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(300,560)" name="Tunnel">
-      <a name="label" val="WDT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(240,450)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="SW"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp loc="(290,540)" name="Watchdog"/>
-    <comp lib="0" loc="(640,410)" name="Probe">
-      <a name="facing" val="south"/>
+    <comp lib="0" loc="(660,280)" name="Probe">
+      <a name="facing" val="north"/>
       <a name="radix" val="16"/>
-      <a name="label" val="Data"/>
-      <a name="labelloc" val="north"/>
+      <a name="label" val="Indirect Addr"/>
+      <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(550,570)" name="Tunnel">
@@ -1217,70 +630,34 @@
       <a name="label" val="acc_w"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="2" loc="(690,380)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="width" val="8"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(550,540)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(420,530)" name="Tunnel">
+    <comp lib="0" loc="(970,550)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="reg_w"/>
+      <a name="width" val="8"/>
+      <a name="label" val="PORTB_out"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(260,600)" name="Tunnel">
-      <a name="label" val="rst"/>
+    <comp lib="0" loc="(590,80)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="13"/>
+      <a name="label" val="PCL-LATH"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(657,98)" name="Text">
+      <a name="text" val="RAM File "/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
+    </comp>
+    <comp lib="0" loc="(990,170)" name="Tunnel">
+      <a name="label" val="EEIF"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(120,420)" name="Tunnel">
+      <a name="label" val="pop"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(870,630)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="INTF"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(89,235)" name="Text">
-      <a name="text" val="Instruction reg"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="6" loc="(308,196)" name="Text">
-      <a name="text" val="8 level stack"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
-    </comp>
-    <comp lib="0" loc="(590,120)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="32"/>
-      <a name="label" val="SFR_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(910,420)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="width" val="8"/>
-      <a name="label" val="OPT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(270,120)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="call-goto"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
-    </comp>
-    <comp lib="0" loc="(480,250)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(740,450)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="SW"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(420,510)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="dest"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(740,480)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="SW_IN"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(980,80)" name="Splitter">
       <a name="facing" val="west"/>
@@ -1302,15 +679,100 @@
       <a name="bit14" val="1"/>
       <a name="bit15" val="1"/>
     </comp>
-    <comp lib="0" loc="(120,380)" name="Tunnel">
+    <comp lib="0" loc="(100,290)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(430,620)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="RAM_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(920,200)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="EEADR"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(860,140)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="EEDATA"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(907,33)" name="Text">
+      <a name="text" val="EEPROM"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="0" loc="(680,170)" name="Tunnel">
+      <a name="label" val="RAM_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(50,200)" name="Tunnel">
+      <a name="label" val="skip"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(550,540)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(40,580)" name="Clock">
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(400,350)" name="Tunnel">
+      <a name="facing" val="east"/>
       <a name="width" val="5"/>
       <a name="label" val="jumps"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(690,270)" name="Splitter">
+    <comp lib="5" loc="(950,610)" name="Button">
       <a name="facing" val="west"/>
+    </comp>
+    <comp loc="(250,160)" name="Stack counter"/>
+    <comp lib="0" loc="(420,510)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="dest"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(90,500)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="SEQ"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(660,210)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="RAM Addr"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(410,430)" name="Tunnel">
+      <a name="label" val="egie"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp loc="(110,320)" name="InstructionDecode"/>
+    <comp lib="1" loc="(430,560)" name="NOT Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(240,430)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="FSR reg"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(240,210)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="push "/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(510,270)" name="Splitter">
       <a name="fanout" val="1"/>
-      <a name="incoming" val="8"/>
+      <a name="incoming" val="14"/>
       <a name="appear" val="center"/>
       <a name="bit1" val="0"/>
       <a name="bit2" val="0"/>
@@ -1319,97 +781,126 @@
       <a name="bit5" val="0"/>
       <a name="bit6" val="0"/>
       <a name="bit7" val="none"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="none"/>
+    </comp>
+    <comp lib="6" loc="(63,397)" name="Text">
+      <a name="text" val=" Decode "/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(240,370)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="PORTA_out"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="1" loc="(740,50)" name="Controlled Buffer">
+      <a name="width" val="8"/>
+      <a name="control" val="left"/>
     </comp>
     <comp lib="6" loc="(654,134)" name="Text">
       <a name="text" val="68 x 8"/>
       <a name="font" val="TeX Gyre Bonum Math plain 14"/>
     </comp>
-    <comp lib="0" loc="(220,560)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
+    <comp lib="0" loc="(120,320)" name="Tunnel">
+      <a name="label" val="int"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(870,630)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="INTF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(970,580)" name="Constant">
-      <a name="facing" val="south"/>
-      <a name="width" val="7"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(500,380)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-    </comp>
-    <comp lib="0" loc="(200,80)" name="Probe">
+    <comp lib="0" loc="(60,610)" name="Pin">
       <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="PC"/>
+      <a name="label" val="OSC1/CLKIN"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(230,60)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="width" val="5"/>
-      <a name="label" val="jumps"/>
+    <comp lib="6" loc="(904,275)" name="Text">
+      <a name="text" val="TMR0"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="0" loc="(530,480)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="opcode"/>
+      <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="6" loc="(584,535)" name="Text">
-      <a name="text" val="W reg"/>
+    <comp lib="0" loc="(1010,350)" name="Clock">
+      <a name="facing" val="west"/>
+      <a name="highDuration" val="2"/>
+      <a name="lowDuration" val="2"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
+    </comp>
+    <comp lib="0" loc="(530,460)" name="Probe">
+      <a name="label" val="op7"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(360,400)" name="Splitter">
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="7"/>
+      <a name="appear" val="right"/>
+      <a name="bit5" val="4"/>
+      <a name="bit6" val="4"/>
+    </comp>
+    <comp lib="6" loc="(65,423)" name="Text">
+      <a name="text" val="&amp; Control  "/>
       <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(420,110)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="pcl/pclath"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
-    </comp>
-    <comp lib="0" loc="(970,510)" name="Tunnel">
+    <comp lib="0" loc="(200,560)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="width" val="5"/>
-      <a name="label" val="PORTA_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+      <a name="label" val="sleep"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="0" loc="(1010,510)" name="Pin">
+    <comp lib="0" loc="(970,150)" name="Probe">
       <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-      <a name="label" val="RA4:0"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(420,330)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="RP0"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(160,610)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="label" val="OSC2/CLKOUT"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(600,217)" name="Text">
+      <a name="text" val="INDF"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(880,500)" name="Splitter">
+      <a name="incoming" val="13"/>
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="1"/>
+      <a name="bit6" val="1"/>
+      <a name="bit7" val="1"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+    </comp>
+    <comp lib="0" loc="(920,320)" name="Tunnel">
+      <a name="label" val="rst"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="6" loc="(255,544)" name="Text">
+      <a name="text" val="Watchdog"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(580,410)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="Accu"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="6" loc="(310,80)" name="Text">
+      <a name="text" val="Program counter"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
+    </comp>
+    <comp lib="0" loc="(990,70)" name="Tunnel">
+      <a name="width" val="16"/>
+      <a name="label" val="ROM_in"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(700,330)" name="Probe">
       <a name="facing" val="south"/>
@@ -1418,69 +909,27 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(590,100)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="24"/>
-      <a name="label" val="ROM_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(590,140)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="21"/>
-      <a name="label" val="TMR0_IO"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(190,530)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="8"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="0"/>
-      <a name="bit4" val="0"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-    </comp>
-    <comp lib="1" loc="(470,590)" name="AND Gate">
+    <comp lib="1" loc="(440,590)" name="AND Gate">
       <a name="facing" val="south"/>
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(410,450)" name="Tunnel">
-      <a name="label" val="INTF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="6" loc="(904,275)" name="Text">
-      <a name="text" val="TMR0"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
-    </comp>
-    <comp lib="0" loc="(240,370)" name="Tunnel">
-      <a name="width" val="5"/>
-      <a name="label" val="PORTA_out"/>
+    <comp loc="(430,200)" name="Interrupt"/>
+    <comp lib="0" loc="(430,600)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="acc_w"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(930,390)" name="Probe">
-      <a name="radix" val="10unsigned"/>
-      <a name="label" val="rate"/>
-      <a name="labelloc" val="north"/>
+    <comp lib="2" loc="(650,220)" name="Multiplexer">
+      <a name="facing" val="north"/>
+      <a name="width" val="7"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(590,120)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="32"/>
+      <a name="label" val="SFR_out"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(65,423)" name="Text">
-      <a name="text" val="&amp; Control  "/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(700,270)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="FSR reg"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(260,570)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="10unsigned"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(880,70)" name="Probe">
       <a name="radix" val="16"/>
@@ -1488,65 +937,8 @@
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(250,610)" name="Pin">
+    <comp lib="0" loc="(30,210)" name="Probe">
       <a name="facing" val="north"/>
-      <a name="label" val="MCLR"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp loc="(20,210)" name="Instruction reg"/>
-    <comp lib="0" loc="(480,210)" name="Tunnel">
-      <a name="label" val="EEIF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(120,440)" name="Tunnel">
-      <a name="label" val="egie"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(970,550)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="8"/>
-      <a name="label" val="PORTB_out"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="1" loc="(440,590)" name="AND Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(320,610)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="label" val="VDD/VSS"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="5" loc="(230,610)" name="Button">
-      <a name="facing" val="north"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(990,480)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="width" val="4"/>
-    </comp>
-    <comp lib="0" loc="(420,220)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="int"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(640,280)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="Direct Addr"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="6" loc="(610,484)" name="Text">
-      <a name="text" val="ALU"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(255,544)" name="Text">
-      <a name="text" val="Watchdog"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(730,480)" name="Splitter">
       <a name="facing" val="west"/>
@@ -1560,91 +952,57 @@
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
     </comp>
-    <comp lib="1" loc="(790,550)" name="Controlled Buffer">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(920,300)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(430,560)" name="NOT Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(810,550)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
     <comp lib="0" loc="(940,370)" name="Tunnel">
       <a name="label" val="wdt"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(570,600)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="0" loc="(480,230)" name="Tunnel">
-      <a name="width" val="8"/>
-      <a name="label" val="INTCON"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="1" loc="(10,190)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(240,190)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="pop "/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(430,620)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="RAM_w"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(1010,430)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="RA4/T0CKL"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(646,29)" name="Text">
-      <a name="text" val="RAM"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
-    </comp>
-    <comp lib="7" loc="(700,70)" name="RAM"/>
-    <comp lib="0" loc="(410,430)" name="Tunnel">
-      <a name="label" val="egie"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="3" loc="(620,240)" name="Comparator">
-      <a name="width" val="7"/>
-    </comp>
-    <comp lib="6" loc="(699,622)" name="Text">
-      <a name="text" val="Result regster"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="6" loc="(653,116)" name="Text">
+      <a name="text" val="Registers"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
     </comp>
     <comp lib="0" loc="(780,560)" name="Tunnel">
       <a name="facing" val="north"/>
       <a name="label" val="RAM_w"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="6" loc="(921,122)" name="Text">
-      <a name="text" val="EEPROM"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    <comp loc="(20,210)" name="Instruction reg"/>
+    <comp lib="0" loc="(350,230)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="0" loc="(1010,350)" name="Clock">
-      <a name="facing" val="west"/>
-      <a name="highDuration" val="2"/>
-      <a name="lowDuration" val="2"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
+    <comp lib="0" loc="(640,280)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="Direct Addr"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(160,610)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="label" val="OSC2/CLKOUT"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(500,360)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="0"/>
     </comp>
     <comp lib="0" loc="(40,500)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -1652,9 +1010,273 @@
       <a name="label" val="CLK_RST"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
+    <comp lib="6" loc="(919,139)" name="Text">
+      <a name="text" val="64x8"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(710,140)" name="Tunnel">
+      <a name="width" val="13"/>
+      <a name="label" val="IO_in"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(480,250)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(65,551)" name="Text">
+      <a name="text" val="Timing"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
     <comp lib="0" loc="(810,60)" name="Probe">
       <a name="facing" val="west"/>
       <a name="radix" val="16"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp loc="(890,100)" name="EEPROM"/>
+    <comp lib="0" loc="(810,550)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(350,50)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="1" loc="(790,550)" name="Controlled Buffer">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(180,530)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="SW_IN"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(420,110)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="pcl/pclath"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
+    </comp>
+    <comp lib="0" loc="(420,330)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="RP0"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(970,580)" name="Constant">
+      <a name="facing" val="south"/>
+      <a name="width" val="7"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(240,350)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="TMR0"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="2" loc="(690,380)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="width" val="8"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(710,100)" name="Tunnel">
+      <a name="width" val="16"/>
+      <a name="label" val="ROM_in"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(1020,470)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="4"/>
+      <a name="label" val="RA3:0"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(120,460)" name="Tunnel">
+      <a name="label" val="clrwdt"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp loc="(250,70)" name="Program counter"/>
+    <comp lib="0" loc="(990,200)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="24"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="2"/>
+      <a name="bit1" val="2"/>
+      <a name="bit3" val="2"/>
+      <a name="bit4" val="2"/>
+      <a name="bit5" val="2"/>
+      <a name="bit6" val="2"/>
+      <a name="bit7" val="2"/>
+      <a name="bit8" val="1"/>
+      <a name="bit9" val="1"/>
+      <a name="bit10" val="1"/>
+      <a name="bit11" val="1"/>
+      <a name="bit12" val="1"/>
+      <a name="bit13" val="1"/>
+      <a name="bit14" val="1"/>
+      <a name="bit15" val="1"/>
+      <a name="bit16" val="0"/>
+      <a name="bit17" val="0"/>
+      <a name="bit18" val="0"/>
+      <a name="bit19" val="0"/>
+      <a name="bit20" val="0"/>
+      <a name="bit21" val="0"/>
+      <a name="bit22" val="0"/>
+      <a name="bit23" val="0"/>
+    </comp>
+    <comp lib="0" loc="(320,610)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="VDD/VSS"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="8" loc="(650,470)" name="ALU"/>
+    <comp lib="0" loc="(900,160)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 6"/>
+    </comp>
+    <comp lib="0" loc="(240,490)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="OPT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(980,550)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="RB7:0"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(40,260)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="6" loc="(699,622)" name="Text">
+      <a name="text" val="Result regster"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(200,80)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="PC"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(1040,630)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="RB0/INT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(320,120)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="return"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
+    </comp>
+    <comp lib="0" loc="(260,600)" name="Tunnel">
+      <a name="label" val="rst"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(870,500)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="13"/>
+      <a name="label" val="IO_in"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(910,420)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="8"/>
+      <a name="label" val="OPT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(270,120)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="call-goto"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
+    </comp>
+    <comp lib="0" loc="(240,190)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="pop "/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(480,230)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="INTCON"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(40,180)" name="Tunnel">
+      <a name="label" val="result_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(680,330)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="Literal"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(710,80)" name="Tunnel">
+      <a name="width" val="7"/>
+      <a name="label" val="control"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(560,600)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp loc="(290,540)" name="Watchdog"/>
+    <comp lib="0" loc="(990,480)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="width" val="4"/>
+    </comp>
+    <comp lib="7" loc="(700,70)" name="RAM"/>
+    <comp lib="1" loc="(470,590)" name="AND Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(180,580)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(880,370)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="WDT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(970,110)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="EECON1_out"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(250,610)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="label" val="MCLR"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(1010,430)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="RA4/T0CKL"/>
+      <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(180,260)" name="Splitter">
@@ -1675,6 +1297,252 @@
       <a name="bit11" val="none"/>
       <a name="bit12" val="none"/>
       <a name="bit13" val="none"/>
+    </comp>
+    <comp lib="0" loc="(220,560)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(660,360)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="Literal or Bus"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(280,430)" name="Tunnel">
+      <a name="width" val="32"/>
+      <a name="label" val="SFR_out"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(500,390)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="none"/>
+    </comp>
+    <comp lib="6" loc="(89,235)" name="Text">
+      <a name="text" val="Instruction reg"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
+    </comp>
+    <comp lib="0" loc="(120,360)" name="Tunnel">
+      <a name="label" val="reg_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="3" loc="(620,240)" name="Comparator">
+      <a name="width" val="7"/>
+    </comp>
+    <comp lib="0" loc="(620,170)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 6"/>
+    </comp>
+    <comp lib="6" loc="(456,173)" name="Text">
+      <a name="text" val="Interruptor"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 14"/>
+    </comp>
+    <comp lib="0" loc="(410,470)" name="Tunnel">
+      <a name="width" val="3"/>
+      <a name="label" val="EE_W"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(870,520)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="6" loc="(646,29)" name="Text">
+      <a name="text" val="RAM"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="1" loc="(540,360)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(220,340)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="width" val="21"/>
+      <a name="label" val="TMR0_IO"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(240,470)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="INTCON"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(700,590)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(400,330)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+    </comp>
+    <comp lib="0" loc="(740,480)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="SW_IN"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(80,490)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="step"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(610,450)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="label" val="Z,DC,C"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(500,340)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="none"/>
+    </comp>
+    <comp lib="0" loc="(120,480)" name="Tunnel">
+      <a name="label" val="sleep"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="6" loc="(904,471)" name="Text">
+      <a name="text" val="IO ports"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="0" loc="(690,470)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(900,580)" name="Splitter">
+      <a name="incoming" val="8"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="0"/>
+    </comp>
+    <comp lib="0" loc="(740,440)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(360,90)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="width" val="13"/>
+      <a name="value" val="0x4"/>
+    </comp>
+    <comp lib="0" loc="(700,590)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(380,110)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="int"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math bold 10"/>
+    </comp>
+    <comp lib="0" loc="(990,200)" name="Tunnel">
+      <a name="width" val="24"/>
+      <a name="label" val="ROM_out"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(650,550)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(100,180)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(930,390)" name="Probe">
+      <a name="radix" val="10unsigned"/>
+      <a name="label" val="rate"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="5" loc="(230,610)" name="Button">
+      <a name="facing" val="north"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(670,560)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="result_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(120,400)" name="Tunnel">
+      <a name="label" val="push"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(760,40)" name="Tunnel">
+      <a name="label" val="RAM_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(980,590)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="7"/>
+      <a name="label" val="RB7:1"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(52,53)" name="Text">
+      <a name="text" val="1K x 14"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 18"/>
+    </comp>
+    <comp lib="0" loc="(240,390)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="PORTB_out"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(200,350)" name="Splitter">
       <a name="fanout" val="3"/>
@@ -1701,16 +1569,144 @@
       <a name="bit19" val="2"/>
       <a name="bit20" val="2"/>
     </comp>
-    <comp lib="0" loc="(360,160)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="10unsigned"/>
-      <a name="label" val="SP"/>
+    <comp lib="0" loc="(700,270)" name="Tunnel">
+      <a name="width" val="8"/>
+      <a name="label" val="FSR reg"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(680,330)" name="Probe">
+    <comp lib="6" loc="(88,30)" name="Text">
+      <a name="text" val="Flash Program"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 20"/>
+    </comp>
+    <comp lib="0" loc="(690,270)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="0"/>
+      <a name="bit4" val="0"/>
+      <a name="bit5" val="0"/>
+      <a name="bit6" val="0"/>
+      <a name="bit7" val="none"/>
+    </comp>
+    <comp lib="0" loc="(230,60)" name="Tunnel">
       <a name="facing" val="south"/>
+      <a name="width" val="5"/>
+      <a name="label" val="jumps"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(120,380)" name="Tunnel">
+      <a name="width" val="5"/>
+      <a name="label" val="jumps"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(380,390)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="width" val="7"/>
+      <a name="label" val="control"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(640,50)" name="Probe">
       <a name="radix" val="16"/>
-      <a name="label" val="Literal"/>
+      <a name="label" val="RAM Addr"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(890,320)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="SEQ"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="6" loc="(65,371)" name="Text">
+      <a name="text" val="Instruction"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(120,580)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="6" loc="(584,535)" name="Text">
+      <a name="text" val="W reg"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(1010,510)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+      <a name="label" val="RA4:0"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(960,470)" name="Splitter">
+      <a name="incoming" val="5"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit2" val="1"/>
+      <a name="bit3" val="1"/>
+      <a name="bit4" val="0"/>
+    </comp>
+    <comp lib="4" loc="(160,110)" name="ROM">
+      <a name="addrWidth" val="13"/>
+      <a name="dataWidth" val="14"/>
+      <a name="contents">addr/data: 13 14
+3003 8c 3000 8d 3002 8e 3005 8f
+3004 90 3003 91 0 300d 84 3005
+92 180 a84 b92 2811 88d
+</a>
+    </comp>
+    <comp lib="0" loc="(420,530)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="reg_w"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(590,140)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="21"/>
+      <a name="label" val="TMR0_IO"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(900,410)" name="Probe">
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(410,450)" name="Tunnel">
+      <a name="label" val="INTF"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(420,350)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="jump"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="4" loc="(710,550)" name="Register">
+      <a name="trigger" val="falling"/>
+    </comp>
+    <comp lib="0" loc="(730,450)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit1" val="0"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+    </comp>
+    <comp lib="0" loc="(900,300)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="8"/>
+      <a name="label" val="TMR0"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(120,440)" name="Tunnel">
+      <a name="label" val="egie"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
   </circuit>
@@ -1800,64 +1796,17 @@
     <wire from="(410,320)" to="(490,320)"/>
     <wire from="(180,320)" to="(320,320)"/>
     <wire from="(180,300)" to="(320,300)"/>
-    <comp lib="0" loc="(540,340)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="11"/>
-      <a name="label" val="GOTO"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="1" loc="(400,110)" name="AND Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="2" loc="(290,200)" name="Priority Encoder">
+      <a name="select" val="2"/>
+    </comp>
+    <comp lib="0" loc="(170,220)" name="Probe">
+      <a name="label" val="load_pc"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(400,70)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="0" loc="(160,100)" name="Splitter">
-      <a name="fanout" val="5"/>
-      <a name="incoming" val="5"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp lib="0" loc="(170,350)" name="Pin">
-      <a name="width" val="13"/>
-      <a name="label" val="INT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(180,70)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="label" val="jump"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(540,270)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="13"/>
-      <a name="label" val="PCL-PCLATH"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(540,90)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="13"/>
-      <a name="label" val="PROGRAM COUNTER"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(540,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="label" val="SEQ"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(170,180)" name="Probe">
-      <a name="label" val="int"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(340,190)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="0" loc="(380,170)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
     </comp>
     <comp lib="0" loc="(440,130)" name="Splitter">
       <a name="facing" val="north"/>
@@ -1865,18 +1814,11 @@
       <a name="bit0" val="1"/>
       <a name="bit1" val="0"/>
     </comp>
-    <comp lib="0" loc="(170,200)" name="Probe">
-      <a name="label" val="call_goto"/>
+    <comp lib="0" loc="(320,290)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="STACK"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(170,220)" name="Probe">
-      <a name="label" val="load_pc"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(140,100)" name="Pin">
-      <a name="width" val="5"/>
-      <a name="label" val="Jump cmd"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(490,320)" name="Splitter">
       <a name="incoming" val="13"/>
@@ -1894,9 +1836,21 @@
       <a name="bit11" val="0"/>
       <a name="bit12" val="0"/>
     </comp>
-    <comp lib="1" loc="(350,120)" name="NOT Gate">
+    <comp lib="0" loc="(350,70)" name="Probe">
       <a name="facing" val="south"/>
-      <a name="size" val="20"/>
+      <a name="label" val="Jump"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(320,330)" name="Probe">
+      <a name="facing" val="north"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="INT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(170,180)" name="Probe">
+      <a name="label" val="int"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(530,300)" name="Splitter">
       <a name="facing" val="south"/>
@@ -1917,23 +1871,6 @@
       <a name="bit11" val="0"/>
       <a name="bit12" val="0"/>
     </comp>
-    <comp lib="1" loc="(400,110)" name="AND Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(320,330)" name="Probe">
-      <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="INT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(350,70)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="label" val="Jump"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
     <comp lib="0" loc="(410,330)" name="Probe">
       <a name="facing" val="north"/>
       <a name="radix" val="16"/>
@@ -1941,20 +1878,28 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(410,290)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="PCL-PCLATH"/>
+    <comp lib="0" loc="(540,90)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="13"/>
+      <a name="label" val="PROGRAM COUNTER"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(540,340)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="11"/>
+      <a name="label" val="GOTO"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="2" loc="(290,200)" name="Priority Encoder">
-      <a name="select" val="2"/>
+    <comp lib="0" loc="(170,160)" name="Probe">
+      <a name="label" val="return"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(320,290)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="STACK"/>
+    <comp lib="0" loc="(170,350)" name="Pin">
+      <a name="width" val="13"/>
+      <a name="label" val="INT"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="2" loc="(370,180)" name="Multiplexer">
@@ -1963,6 +1908,27 @@
       <a name="width" val="13"/>
       <a name="enable" val="false"/>
     </comp>
+    <comp lib="1" loc="(350,120)" name="NOT Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="4" loc="(450,90)" name="Counter">
+      <a name="width" val="13"/>
+      <a name="max" val="0x1fff"/>
+      <a name="label" val="PC"/>
+    </comp>
+    <comp lib="0" loc="(410,290)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="PCL-PCLATH"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(160,100)" name="Splitter">
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+      <a name="appear" val="center"/>
+    </comp>
     <comp lib="0" loc="(540,130)" name="Pin">
       <a name="facing" val="west"/>
       <a name="width" val="2"/>
@@ -1970,18 +1936,48 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="4" loc="(450,90)" name="Counter">
-      <a name="width" val="13"/>
-      <a name="max" val="0x1fff"/>
-      <a name="label" val="PC"/>
+    <comp lib="0" loc="(140,100)" name="Pin">
+      <a name="width" val="5"/>
+      <a name="label" val="Jump cmd"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(180,70)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="label" val="jump"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(400,70)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(540,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="label" val="SEQ"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(170,270)" name="Pin">
       <a name="width" val="13"/>
       <a name="label" val="STACK"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(170,160)" name="Probe">
-      <a name="label" val="return"/>
+    <comp lib="0" loc="(380,170)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(540,270)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="13"/>
+      <a name="label" val="PCL-PCLATH"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(340,190)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(170,200)" name="Probe">
+      <a name="label" val="call_goto"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
   </circuit>
@@ -2070,29 +2066,6 @@
     <wire from="(220,110)" to="(230,110)"/>
     <wire from="(90,160)" to="(100,160)"/>
     <wire from="(200,90)" to="(200,150)"/>
-    <comp lib="0" loc="(150,170)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="width" val="3"/>
-      <a name="label" val="SP"/>
-    </comp>
-    <comp lib="0" loc="(80,330)" name="Pin">
-      <a name="label" val="POP"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(150,320)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="incoming" val="3"/>
-      <a name="bit2" val="1"/>
-    </comp>
-    <comp lib="0" loc="(560,230)" name="Tunnel">
-      <a name="label" val="push"/>
-    </comp>
-    <comp lib="0" loc="(180,290)" name="Ground"/>
-    <comp lib="1" loc="(540,260)" name="NOT Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="20"/>
-    </comp>
     <comp lib="0" loc="(570,120)" name="Pin">
       <a name="facing" val="south"/>
       <a name="width" val="13"/>
@@ -2100,21 +2073,114 @@
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
+    <comp lib="3" loc="(200,180)" name="Adder">
+      <a name="width" val="3"/>
+    </comp>
     <comp lib="2" loc="(370,170)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="width" val="3"/>
       <a name="enable" val="false"/>
     </comp>
+    <comp lib="0" loc="(390,90)" name="Probe">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="1" loc="(570,200)" name="Controlled Buffer">
+      <a name="facing" val="south"/>
+      <a name="width" val="13"/>
+    </comp>
+    <comp lib="0" loc="(310,310)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(150,190)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="incoming" val="3"/>
+      <a name="bit2" val="1"/>
+    </comp>
+    <comp lib="1" loc="(260,100)" name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(80,330)" name="Pin">
+      <a name="label" val="POP"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(440,250)" name="Power">
+      <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(150,320)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="incoming" val="3"/>
+      <a name="bit2" val="1"/>
+    </comp>
+    <comp lib="0" loc="(180,290)" name="Ground"/>
+    <comp lib="1" loc="(210,340)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
     <comp lib="3" loc="(200,310)" name="Subtractor">
       <a name="width" val="3"/>
+    </comp>
+    <comp lib="0" loc="(330,60)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="width" val="3"/>
+      <a name="label" val="SP"/>
+    </comp>
+    <comp lib="0" loc="(180,160)" name="Ground"/>
+    <comp lib="1" loc="(220,240)" name="AND Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(450,280)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="right"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
     </comp>
     <comp lib="4" loc="(320,90)" name="Register">
       <a name="width" val="3"/>
     </comp>
-    <comp lib="0" loc="(150,300)" name="Tunnel">
+    <comp lib="0" loc="(80,200)" name="Pin">
+      <a name="label" val="PUSH"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(130,340)" name="Ground">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(90,160)" name="Tunnel">
       <a name="facing" val="east"/>
+      <a name="label" val="push"/>
+    </comp>
+    <comp lib="0" loc="(650,120)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="13"/>
+      <a name="label" val="DATA OUT"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(250,270)" name="Controlled Buffer">
+      <a name="facing" val="north"/>
       <a name="width" val="3"/>
-      <a name="label" val="SP"/>
+      <a name="control" val="left"/>
+    </comp>
+    <comp lib="4" loc="(530,210)" name="RAM">
+      <a name="addrWidth" val="3"/>
+      <a name="dataWidth" val="13"/>
+    </comp>
+    <comp lib="0" loc="(130,210)" name="Ground">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(560,230)" name="Tunnel">
+      <a name="label" val="push"/>
+    </comp>
+    <comp lib="0" loc="(360,140)" name="Tunnel">
+      <a name="label" val="push"/>
     </comp>
     <comp lib="0" loc="(310,130)" name="Splitter">
       <a name="facing" val="north"/>
@@ -2127,95 +2193,25 @@
       <a name="width" val="3"/>
       <a name="control" val="left"/>
     </comp>
-    <comp lib="1" loc="(210,340)" name="NOT Gate">
+    <comp lib="0" loc="(150,170)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="width" val="3"/>
+      <a name="label" val="SP"/>
+    </comp>
+    <comp lib="1" loc="(540,260)" name="NOT Gate">
+      <a name="facing" val="south"/>
       <a name="size" val="20"/>
     </comp>
-    <comp lib="1" loc="(260,100)" name="OR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(390,90)" name="Probe">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(450,280)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="right"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="1" loc="(250,270)" name="Controlled Buffer">
-      <a name="facing" val="north"/>
-      <a name="width" val="3"/>
-      <a name="control" val="left"/>
-    </comp>
-    <comp lib="0" loc="(80,200)" name="Pin">
-      <a name="label" val="PUSH"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="4" loc="(530,210)" name="RAM">
-      <a name="addrWidth" val="3"/>
-      <a name="dataWidth" val="13"/>
-    </comp>
-    <comp lib="0" loc="(310,310)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(130,340)" name="Ground">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="1" loc="(220,240)" name="AND Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(90,160)" name="Tunnel">
+    <comp lib="0" loc="(150,300)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="push"/>
-    </comp>
-    <comp lib="0" loc="(360,140)" name="Tunnel">
-      <a name="label" val="push"/>
-    </comp>
-    <comp lib="0" loc="(150,190)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="incoming" val="3"/>
-      <a name="bit2" val="1"/>
-    </comp>
-    <comp lib="1" loc="(570,200)" name="Controlled Buffer">
-      <a name="facing" val="south"/>
-      <a name="width" val="13"/>
+      <a name="width" val="3"/>
+      <a name="label" val="SP"/>
     </comp>
     <comp lib="0" loc="(480,100)" name="Pin">
       <a name="facing" val="south"/>
       <a name="output" val="true"/>
       <a name="width" val="3"/>
       <a name="label" val="Stack pointer"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="3" loc="(200,180)" name="Adder">
-      <a name="width" val="3"/>
-    </comp>
-    <comp lib="0" loc="(180,160)" name="Ground"/>
-    <comp lib="0" loc="(440,250)" name="Power">
-      <a name="facing" val="south"/>
-    </comp>
-    <comp lib="0" loc="(130,210)" name="Ground">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(330,60)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="width" val="3"/>
-      <a name="label" val="SP"/>
-    </comp>
-    <comp lib="0" loc="(650,120)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="13"/>
-      <a name="label" val="DATA OUT"/>
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
@@ -2296,24 +2292,36 @@
     <wire from="(160,90)" to="(160,150)"/>
     <wire from="(290,170)" to="(360,170)"/>
     <wire from="(260,130)" to="(260,190)"/>
-    <comp lib="4" loc="(120,150)" name="Counter">
-      <a name="width" val="2"/>
-      <a name="max" val="0x3"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(430,110)" name="Pin">
+    <comp lib="0" loc="(430,190)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="label" val="skip_e"/>
+      <a name="label" val="reg_w"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(430,130)" name="Pin">
+    <comp lib="0" loc="(110,290)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(430,70)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="label" val="ram_r"/>
+      <a name="label" val="pop"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(270,290)" name="Pin">
+      <a name="facing" val="north"/>
+      <a name="output" val="true"/>
+      <a name="label" val="instr_w"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(260,230)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(180,90)" name="Splitter">
       <a name="facing" val="west"/>
@@ -2327,50 +2335,6 @@
       <a name="bit6" val="0"/>
       <a name="bit7" val="0"/>
     </comp>
-    <comp lib="0" loc="(110,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(250,150)" name="Constant">
-      <a name="width" val="10"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="0" loc="(270,190)" name="Splitter">
-      <a name="fanout" val="10"/>
-      <a name="incoming" val="10"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp lib="0" loc="(430,230)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="sleep"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(430,280)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="SEQ"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(270,290)" name="Pin">
-      <a name="facing" val="north"/>
-      <a name="output" val="true"/>
-      <a name="label" val="instr_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(430,170)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="status_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
     <comp lib="0" loc="(430,260)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -2379,26 +2343,10 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="3" loc="(210,180)" name="Comparator">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="1" loc="(260,230)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(430,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="result_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(430,90)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="jmp"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="0" loc="(270,190)" name="Splitter">
+      <a name="fanout" val="10"/>
+      <a name="incoming" val="10"/>
+      <a name="appear" val="center"/>
     </comp>
     <comp lib="4" loc="(320,90)" name="ROM">
       <a name="dataWidth" val="10"/>
@@ -2406,14 +2354,19 @@
 0
 </a>
     </comp>
-    <comp lib="0" loc="(170,190)" name="Constant">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(110,290)" name="Pin">
+      <a name="facing" val="north"/>
       <a name="width" val="2"/>
-      <a name="value" val="0x0"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="6" loc="(110,116)" name="Text">
-      <a name="text" val="Sequencer"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
+    <comp lib="0" loc="(430,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="skip_e"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(430,210)" name="Pin">
       <a name="facing" val="west"/>
@@ -2422,23 +2375,33 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(110,290)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
+    <comp lib="4" loc="(120,150)" name="Counter">
+      <a name="width" val="2"/>
+      <a name="max" val="0x3"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(430,50)" name="Pin">
+    <comp lib="0" loc="(250,150)" name="Constant">
+      <a name="width" val="10"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(430,150)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="label" val="push"/>
+      <a name="label" val="result_w"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(430,70)" name="Pin">
+    <comp lib="3" loc="(210,180)" name="Comparator">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="6" loc="(110,116)" name="Text">
+      <a name="text" val="Sequencer"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
+    </comp>
+    <comp lib="0" loc="(430,170)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="label" val="pop"/>
+      <a name="label" val="status_w"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
@@ -2448,15 +2411,48 @@
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(430,190)" name="Pin">
+    <comp lib="0" loc="(430,90)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="label" val="reg_w"/>
+      <a name="label" val="jmp"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(170,190)" name="Constant">
+      <a name="facing" val="west"/>
+      <a name="width" val="2"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(430,280)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="SEQ"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(430,50)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="push"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(430,130)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="ram_r"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(230,130)" name="Power">
       <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(430,230)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="sleep"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
   </circuit>
   <circuit name="InstructionDecode">
@@ -2609,58 +2605,27 @@
     <wire from="(270,410)" to="(340,410)"/>
     <wire from="(620,290)" to="(630,290)"/>
     <wire from="(480,260)" to="(480,380)"/>
-    <comp lib="1" loc="(550,220)" name="AND Gate">
+    <comp lib="6" loc="(159,415)" name="Text">
+      <a name="text" val="sleep/clrwdt"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(550,350)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(730,50)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="2"/>
-      <a name="label" val="STEP"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="1" loc="(590,180)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(130,90)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
+    <comp lib="6" loc="(408,273)" name="Text">
+      <a name="text" val="int or call,goto "/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(110,170)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="0"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
+    <comp lib="6" loc="(542,39)" name="Text">
+      <a name="text" val="Sequencing"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
     </comp>
-    <comp lib="0" loc="(730,90)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="instr_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(730,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="push"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(710,460)" name="AND Gate">
+    <comp lib="1" loc="(550,220)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
@@ -2671,207 +2636,13 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(130,450)" name="Constant">
-      <a name="width" val="11"/>
-      <a name="value" val="0xc"/>
-    </comp>
-    <comp lib="0" loc="(60,90)" name="Pin">
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="6" loc="(408,273)" name="Text">
-      <a name="text" val="int or call,goto "/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(550,350)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(130,380)" name="Constant">
-      <a name="width" val="11"/>
-    </comp>
-    <comp lib="0" loc="(730,460)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="sleep"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(730,120)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="carry"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="3" loc="(180,330)" name="Comparator">
-      <a name="width" val="6"/>
-    </comp>
-    <comp lib="0" loc="(130,190)" name="Constant">
+    <comp lib="3" loc="(180,180)" name="Comparator">
       <a name="width" val="7"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="1" loc="(370,400)" name="OR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(110,320)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="0"/>
-      <a name="bit9" val="0"/>
-      <a name="bit10" val="0"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-    </comp>
-    <comp lib="6" loc="(159,415)" name="Text">
-      <a name="text" val="sleep/clrwdt"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(620,450)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(542,39)" name="Text">
-      <a name="text" val="Sequencing"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
-    </comp>
-    <comp lib="0" loc="(70,120)" name="Tunnel">
-      <a name="label" val="int"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(740,300)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="5"/>
-      <a name="incoming" val="5"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp lib="6" loc="(302,214)" name="Text">
-      <a name="text" val="call"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(700,270)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="label" val="jump"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(130,340)" name="Constant">
-      <a name="width" val="6"/>
-      <a name="value" val="0x34"/>
-    </comp>
-    <comp lib="6" loc="(491,80)" name="Text">
-      <a name="text" val="0"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
-    </comp>
-    <comp lib="0" loc="(140,270)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="0"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="none"/>
-    </comp>
-    <comp lib="1" loc="(680,470)" name="NOT Gate">
-      <a name="size" val="20"/>
     </comp>
     <comp lib="0" loc="(240,290)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="int"/>
       <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="3" loc="(180,440)" name="Comparator">
-      <a name="width" val="11"/>
-    </comp>
-    <comp lib="6" loc="(607,83)" name="Text">
-      <a name="text" val="3"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
-    </comp>
-    <comp lib="6" loc="(402,175)" name="Text">
-      <a name="text" val="ALU operation"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(710,430)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(550,150)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(290,220)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(403,394)" name="Text">
-      <a name="text" val="toggle gie"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(730,430)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="clrwdt"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(620,390)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(211,361)" name="Text">
-      <a name="text" val="ret,retfie"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="3" loc="(180,240)" name="Comparator">
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(150,400)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="none"/>
-      <a name="bit13" val="0"/>
-    </comp>
-    <comp lib="0" loc="(730,150)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="result_w"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(110,360)" name="Splitter">
       <a name="fanout" val="1"/>
@@ -2892,35 +2663,227 @@
       <a name="bit12" val="0"/>
       <a name="bit13" val="0"/>
     </comp>
-    <comp lib="1" loc="(280,360)" name="OR Gate">
+    <comp lib="1" loc="(680,470)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(690,310)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="int"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(710,290)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="returns"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="1" loc="(620,270)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(760,270)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="width" val="5"/>
-      <a name="label" val="jumps"/>
+    <comp lib="6" loc="(288,402)" name="Text">
+      <a name="text" val="retfie"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(710,430)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(110,230)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+    </comp>
+    <comp lib="0" loc="(190,210)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="call/goto"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(90,170)" name="Pin">
+      <a name="width" val="14"/>
+      <a name="label" val="OPCODE"/>
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="6" loc="(401,221)" name="Text">
-      <a name="text" val="call or int"/>
+    <comp lib="0" loc="(730,430)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="clrwdt"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(150,400)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="none"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="0"/>
+    </comp>
+    <comp lib="6" loc="(397,465)" name="Text">
+      <a name="text" val="clrwdt"/>
       <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="1" loc="(180,270)" name="NOT Gate">
+    <comp lib="6" loc="(402,175)" name="Text">
+      <a name="text" val="ALU operation"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(730,120)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="carry"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(700,270)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="label" val="jump"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="6" loc="(156,306)" name="Text">
+      <a name="text" val="returns"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(700,330)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="call/goto"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(130,190)" name="Constant">
+      <a name="width" val="7"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="6" loc="(202,321)" name="Text">
+      <a name="text" val="retlw"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(130,450)" name="Constant">
+      <a name="width" val="11"/>
+      <a name="value" val="0xc"/>
+    </comp>
+    <comp lib="0" loc="(730,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="push"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(70,120)" name="Tunnel">
+      <a name="label" val="int"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="3" loc="(180,240)" name="Comparator">
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="1" loc="(300,170)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
-    <comp lib="6" loc="(566,82)" name="Text">
-      <a name="text" val="2"/>
+    <comp lib="6" loc="(491,80)" name="Text">
+      <a name="text" val="0"/>
       <a name="font" val="TeX Gyre Bonum Math plain 16"/>
     </comp>
-    <comp lib="1" loc="(590,180)" name="AND Gate">
+    <comp lib="0" loc="(130,90)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="6" loc="(302,214)" name="Text">
+      <a name="text" val="call"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="2" loc="(150,90)" name="Decoder">
+      <a name="selloc" val="tr"/>
+      <a name="select" val="2"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(730,90)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="instr_w"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(350,280)" name="OR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
+    <comp lib="0" loc="(110,170)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="0"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+    </comp>
+    <comp lib="1" loc="(550,150)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(159,154)" name="Text">
+      <a name="text" val="Control"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(110,320)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+      <a name="bit8" val="0"/>
+      <a name="bit9" val="0"/>
+      <a name="bit10" val="0"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="0"/>
+      <a name="bit13" val="0"/>
+    </comp>
     <comp lib="6" loc="(127,21)" name="Text">
       <a name="text" val="Sequencer"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
+    </comp>
+    <comp lib="6" loc="(566,82)" name="Text">
+      <a name="text" val="2"/>
       <a name="font" val="TeX Gyre Bonum Math plain 16"/>
     </comp>
     <comp lib="0" loc="(110,430)" name="Splitter">
@@ -2942,97 +2905,25 @@
       <a name="bit12" val="0"/>
       <a name="bit13" val="0"/>
     </comp>
-    <comp lib="0" loc="(710,290)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="returns"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    <comp lib="0" loc="(720,330)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="value" val="0x0"/>
     </comp>
-    <comp lib="6" loc="(156,306)" name="Text">
+    <comp lib="0" loc="(130,340)" name="Constant">
+      <a name="width" val="6"/>
+      <a name="value" val="0x34"/>
+    </comp>
+    <comp lib="6" loc="(395,353)" name="Text">
       <a name="text" val="returns"/>
       <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(300,350)" name="Tunnel">
-      <a name="label" val="returns"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="3" loc="(180,180)" name="Comparator">
-      <a name="width" val="7"/>
-    </comp>
-    <comp lib="0" loc="(700,330)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="call/goto"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(330,390)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="int"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="6" loc="(159,154)" name="Text">
-      <a name="text" val="Control"/>
+    <comp lib="6" loc="(401,221)" name="Text">
+      <a name="text" val="call or int"/>
       <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(730,350)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="pop"/>
-      <a name="labelloc" val="east"/>
+    <comp lib="0" loc="(60,120)" name="Pin">
+      <a name="label" val="INT"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(90,170)" name="Pin">
-      <a name="width" val="14"/>
-      <a name="label" val="OPCODE"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(620,270)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="6" loc="(202,321)" name="Text">
-      <a name="text" val="retlw"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(730,390)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="egie"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="2" loc="(150,90)" name="Decoder">
-      <a name="selloc" val="tr"/>
-      <a name="select" val="2"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="1" loc="(260,390)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(300,170)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(110,230)" name="Splitter">
-      <a name="fanout" val="1"/>
-      <a name="incoming" val="14"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="none"/>
-      <a name="bit1" val="none"/>
-      <a name="bit2" val="none"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-      <a name="bit8" val="none"/>
-      <a name="bit9" val="none"/>
-      <a name="bit10" val="none"/>
-      <a name="bit11" val="none"/>
-      <a name="bit12" val="0"/>
-      <a name="bit13" val="0"/>
-    </comp>
-    <comp lib="1" loc="(300,150)" name="NOT Gate">
-      <a name="size" val="20"/>
     </comp>
     <comp lib="0" loc="(150,470)" name="Splitter">
       <a name="fanout" val="1"/>
@@ -3053,67 +2944,172 @@
       <a name="bit12" val="none"/>
       <a name="bit13" val="none"/>
     </comp>
+    <comp lib="3" loc="(180,370)" name="Comparator">
+      <a name="width" val="11"/>
+    </comp>
     <comp lib="1" loc="(660,280)" name="OR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(350,230)" name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(130,380)" name="Constant">
+      <a name="width" val="11"/>
+    </comp>
+    <comp lib="1" loc="(620,450)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(607,83)" name="Text">
+      <a name="text" val="3"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 16"/>
+    </comp>
+    <comp lib="3" loc="(180,440)" name="Comparator">
+      <a name="width" val="11"/>
+    </comp>
+    <comp lib="0" loc="(330,390)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="int"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="1" loc="(370,400)" name="OR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(760,270)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="output" val="true"/>
+      <a name="width" val="5"/>
+      <a name="label" val="jumps"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="6" loc="(528,82)" name="Text">
       <a name="text" val="1"/>
       <a name="font" val="TeX Gyre Bonum Math plain 16"/>
     </comp>
-    <comp lib="6" loc="(288,402)" name="Text">
-      <a name="text" val="retfie"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="0" loc="(730,390)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="egie"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(720,330)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="1" loc="(350,280)" name="OR Gate">
+    <comp lib="1" loc="(290,220)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="6" loc="(397,465)" name="Text">
-      <a name="text" val="clrwdt"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="1" loc="(620,390)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(300,150)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(740,300)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+      <a name="appear" val="center"/>
     </comp>
     <comp lib="4" loc="(140,50)" name="Counter">
       <a name="width" val="2"/>
       <a name="max" val="0x3"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(690,310)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="int"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    <comp lib="0" loc="(730,150)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="result_w"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(190,210)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="call/goto"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    <comp lib="6" loc="(403,394)" name="Text">
+      <a name="text" val="toggle gie"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="1" loc="(350,230)" name="OR Gate">
+    <comp lib="1" loc="(280,360)" name="OR Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="6" loc="(395,353)" name="Text">
-      <a name="text" val="returns"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    <comp lib="0" loc="(730,350)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="pop"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="3" loc="(180,370)" name="Comparator">
-      <a name="width" val="11"/>
-    </comp>
-    <comp lib="0" loc="(60,120)" name="Pin">
-      <a name="label" val="INT"/>
+    <comp lib="0" loc="(60,90)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelloc" val="north"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
     <comp lib="0" loc="(130,250)" name="Constant">
       <a name="width" val="2"/>
       <a name="value" val="0x2"/>
     </comp>
+    <comp lib="0" loc="(730,50)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="label" val="STEP"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="6" loc="(211,361)" name="Text">
+      <a name="text" val="ret,retfie"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(260,390)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="3" loc="(180,330)" name="Comparator">
+      <a name="width" val="6"/>
+    </comp>
+    <comp lib="1" loc="(180,270)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
     <comp lib="1" loc="(330,160)" name="AND Gate">
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(710,460)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(730,460)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="sleep"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(140,270)" name="Splitter">
+      <a name="fanout" val="1"/>
+      <a name="incoming" val="14"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="none"/>
+      <a name="bit1" val="none"/>
+      <a name="bit2" val="none"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+      <a name="bit8" val="none"/>
+      <a name="bit9" val="none"/>
+      <a name="bit10" val="none"/>
+      <a name="bit11" val="0"/>
+      <a name="bit12" val="none"/>
+      <a name="bit13" val="none"/>
+    </comp>
+    <comp lib="0" loc="(300,350)" name="Tunnel">
+      <a name="label" val="returns"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
     </comp>
   </circuit>
   <circuit name="Instruction reg">
@@ -3163,58 +3159,39 @@
     <wire from="(230,130)" to="(240,130)"/>
     <wire from="(110,190)" to="(120,190)"/>
     <wire from="(170,130)" to="(170,250)"/>
+    <comp lib="0" loc="(310,190)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="2" loc="(300,150)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="width" val="14"/>
+      <a name="disabled" val="0"/>
+      <a name="enable" val="false"/>
+    </comp>
     <comp lib="0" loc="(290,110)" name="Constant">
       <a name="facing" val="south"/>
       <a name="width" val="14"/>
       <a name="value" val="0x0"/>
     </comp>
-    <comp lib="0" loc="(420,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="14"/>
-      <a name="label" val="Instr_OUT"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(90,170)" name="Pin">
-      <a name="label" val="Skip"/>
-    </comp>
     <comp lib="0" loc="(90,270)" name="Pin">
       <a name="width" val="2"/>
       <a name="label" val="CLK_RST"/>
     </comp>
-    <comp lib="4" loc="(390,220)" name="Register">
-      <a name="width" val="14"/>
-      <a name="trigger" val="falling"/>
-    </comp>
     <comp lib="0" loc="(90,230)" name="Pin">
       <a name="label" val="instr_w"/>
     </comp>
-    <comp lib="0" loc="(310,190)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
+    <comp lib="0" loc="(310,80)" name="Pin">
+      <a name="facing" val="south"/>
+      <a name="width" val="14"/>
+      <a name="label" val="Instr_IN"/>
+      <a name="labelloc" val="north"/>
     </comp>
     <comp lib="0" loc="(170,270)" name="Splitter">
       <a name="facing" val="north"/>
       <a name="fanout" val="1"/>
       <a name="appear" val="center"/>
       <a name="bit1" val="none"/>
-    </comp>
-    <comp lib="4" loc="(230,130)" name="D Flip-Flop">
-      <a name="trigger" val="falling"/>
-    </comp>
-    <comp lib="1" loc="(150,180)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(320,100)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="0" loc="(240,80)" name="Pin">
-      <a name="facing" val="south"/>
-      <a name="output" val="true"/>
-      <a name="label" val="SKIP_o"/>
-      <a name="labelloc" val="north"/>
     </comp>
     <comp lib="1" loc="(110,200)" name="NOT Gate">
       <a name="facing" val="north"/>
@@ -3226,17 +3203,36 @@
       <a name="bit0" val="1"/>
       <a name="bit1" val="0"/>
     </comp>
-    <comp lib="0" loc="(310,80)" name="Pin">
+    <comp lib="0" loc="(240,80)" name="Pin">
       <a name="facing" val="south"/>
-      <a name="width" val="14"/>
-      <a name="label" val="Instr_IN"/>
+      <a name="output" val="true"/>
+      <a name="label" val="SKIP_o"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="2" loc="(300,150)" name="Multiplexer">
-      <a name="facing" val="south"/>
+    <comp lib="0" loc="(320,100)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(420,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
       <a name="width" val="14"/>
-      <a name="disabled" val="0"/>
-      <a name="enable" val="false"/>
+      <a name="label" val="Instr_OUT"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="4" loc="(230,130)" name="D Flip-Flop">
+      <a name="trigger" val="falling"/>
+    </comp>
+    <comp lib="0" loc="(90,170)" name="Pin">
+      <a name="label" val="Skip"/>
+    </comp>
+    <comp lib="4" loc="(390,220)" name="Register">
+      <a name="width" val="14"/>
+      <a name="trigger" val="falling"/>
+    </comp>
+    <comp lib="1" loc="(150,180)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="Interrupt">
@@ -3293,11 +3289,77 @@
     <wire from="(220,80)" to="(290,80)"/>
     <wire from="(100,190)" to="(170,190)"/>
     <wire from="(260,100)" to="(260,220)"/>
-    <comp lib="0" loc="(330,110)" name="Probe">
+    <comp lib="0" loc="(400,220)" name="Pin">
       <a name="facing" val="west"/>
-      <a name="label" val="INTF"/>
+      <a name="label" val="EEIF"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(210,240)" name="Probe">
+      <a name="label" val="INTenable"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
+    </comp>
+    <comp lib="1" loc="(70,200)" name="AND Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(400,240)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="8"/>
+      <a name="label" val="INTCON_in"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(330,150)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="T0IF"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(390,250)" name="Constant">
+      <a name="facing" val="north"/>
+      <a name="width" val="8"/>
+      <a name="value" val="0x88"/>
+    </comp>
+    <comp lib="0" loc="(330,180)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="EEIF"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(390,210)" name="Constant">
+      <a name="facing" val="south"/>
+      <a name="width" val="4"/>
+      <a name="value" val="0x7"/>
+    </comp>
+    <comp lib="0" loc="(300,240)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="2"/>
+      <a name="bit2" val="0"/>
+      <a name="bit3" val="none"/>
+      <a name="bit4" val="none"/>
+      <a name="bit5" val="none"/>
+      <a name="bit6" val="none"/>
+      <a name="bit7" val="none"/>
+    </comp>
+    <comp lib="1" loc="(120,140)" name="OR Gate">
+      <a name="facing" val="west"/>
+      <a name="inputs" val="4"/>
+    </comp>
+    <comp lib="0" loc="(60,200)" name="Pin">
+      <a name="output" val="true"/>
+      <a name="label" val="INT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(190,120)" name="AND Gate">
+      <a name="facing" val="west"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(240,240)" name="Splitter">
       <a name="facing" val="north"/>
@@ -3313,53 +3375,6 @@
       <a name="bit6" val="3"/>
       <a name="bit7" val="4"/>
     </comp>
-    <comp lib="0" loc="(390,250)" name="Constant">
-      <a name="facing" val="north"/>
-      <a name="width" val="8"/>
-      <a name="value" val="0x88"/>
-    </comp>
-    <comp lib="0" loc="(400,240)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="8"/>
-      <a name="label" val="INTCON_in"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(190,160)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(330,150)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="T0IF"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(70,200)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="1" loc="(120,140)" name="OR Gate">
-      <a name="facing" val="west"/>
-      <a name="inputs" val="4"/>
-    </comp>
-    <comp lib="0" loc="(210,240)" name="Probe">
-      <a name="label" val="INTenable"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
-    </comp>
-    <comp lib="0" loc="(390,210)" name="Constant">
-      <a name="facing" val="south"/>
-      <a name="width" val="4"/>
-      <a name="value" val="0x7"/>
-    </comp>
-    <comp lib="1" loc="(190,120)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(330,80)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="RBIF"/>
@@ -3371,44 +3386,25 @@
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(190,190)" name="AND Gate">
-      <a name="facing" val="west"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="6" loc="(252,49)" name="Text">
       <a name="text" val="Interrupt Handling"/>
       <a name="font" val="TeX Gyre Bonum Math plain 20"/>
     </comp>
-    <comp lib="0" loc="(60,200)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="label" val="INT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(330,180)" name="Probe">
+    <comp lib="1" loc="(190,160)" name="AND Gate">
       <a name="facing" val="west"/>
-      <a name="label" val="EEIF"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(330,110)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="INTF"/>
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(300,240)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="8"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="2"/>
-      <a name="bit2" val="0"/>
-      <a name="bit3" val="none"/>
-      <a name="bit4" val="none"/>
-      <a name="bit5" val="none"/>
-      <a name="bit6" val="none"/>
-      <a name="bit7" val="none"/>
-    </comp>
-    <comp lib="0" loc="(400,220)" name="Pin">
+    <comp lib="1" loc="(190,190)" name="AND Gate">
       <a name="facing" val="west"/>
-      <a name="label" val="EEIF"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="EEPROM">
@@ -3518,18 +3514,6 @@
     <wire from="(410,300)" to="(410,360)"/>
     <wire from="(310,100)" to="(440,100)"/>
     <wire from="(310,290)" to="(380,290)"/>
-    <comp lib="0" loc="(380,200)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="0" loc="(440,40)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="8"/>
-      <a name="label" val="EEDATA"/>
-      <a name="labelloc" val="north"/>
-    </comp>
     <comp lib="0" loc="(420,380)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
@@ -3538,68 +3522,22 @@
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
     </comp>
-    <comp lib="0" loc="(450,330)" name="Tunnel">
-      <a name="label" val="WREN"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    <comp lib="0" loc="(130,50)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
     </comp>
     <comp lib="1" loc="(190,200)" name="AND Gate">
       <a name="facing" val="north"/>
       <a name="size" val="30"/>
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(450,310)" name="Tunnel">
-      <a name="label" val="WRERR"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(110,120)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="label" val="EECON1"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="1" loc="(250,260)" name="NOT Gate">
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="1" loc="(330,40)" name="Controlled Buffer">
-      <a name="facing" val="west"/>
-      <a name="width" val="8"/>
-      <a name="control" val="left"/>
-    </comp>
-    <comp lib="4" loc="(390,140)" name="Counter">
-      <a name="width" val="2"/>
-      <a name="max" val="0x3"/>
-    </comp>
-    <comp lib="1" loc="(160,150)" name="OR Gate">
+    <comp lib="0" loc="(310,380)" name="Splitter">
       <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(420,320)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
       <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="1" loc="(420,360)" name="Buffer">
-      <a name="facing" val="south"/>
-      <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(110,70)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="label" val="EEADR"/>
-      <a name="labelloc" val="south"/>
-    </comp>
-    <comp lib="0" loc="(80,260)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="WR"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(450,240)" name="Tunnel">
-      <a name="label" val="EEIF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(440,340)" name="Ground">
-      <a name="facing" val="east"/>
-      <a name="width" val="5"/>
+      <a name="bit1" val="2"/>
+      <a name="bit2" val="1"/>
     </comp>
     <comp lib="0" loc="(420,380)" name="Splitter">
       <a name="facing" val="north"/>
@@ -3614,71 +3552,7 @@
       <a name="bit6" val="0"/>
       <a name="bit7" val="0"/>
     </comp>
-    <comp lib="1" loc="(230,110)" name="NOT Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(280,350)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="EEIF"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="1" loc="(420,240)" name="Buffer">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="0" loc="(420,150)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="radix" val="16"/>
-      <a name="label" val="EEIF"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(440,100)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-      <a name="label" val="EEDATA_out"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="1" loc="(340,280)" name="OR Gate">
-      <a name="facing" val="south"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="2" loc="(410,290)" name="Multiplexer">
-      <a name="facing" val="south"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(80,220)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="WRERR"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="1" loc="(280,270)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(280,330)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="ECON_W"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(80,200)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="EEIF"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(130,50)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="0" loc="(440,200)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="2"/>
-      <a name="label" val="CLK_RST"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
+    <comp lib="4" loc="(280,70)" name="RAM"/>
     <comp lib="0" loc="(310,380)" name="Pin">
       <a name="facing" val="north"/>
       <a name="output" val="true"/>
@@ -3686,29 +3560,6 @@
       <a name="label" val="EE_W"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(290,50)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="16"/>
-    </comp>
-    <comp lib="4" loc="(280,70)" name="RAM"/>
-    <comp lib="0" loc="(310,380)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-      <a name="appear" val="center"/>
-      <a name="bit1" val="2"/>
-      <a name="bit2" val="1"/>
-    </comp>
-    <comp lib="0" loc="(280,310)" name="Probe">
-      <a name="radix" val="16"/>
-      <a name="label" val="DAT_W"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
-    </comp>
-    <comp lib="0" loc="(80,240)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="WREN"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
     <comp lib="0" loc="(120,150)" name="Splitter">
       <a name="facing" val="south"/>
@@ -3719,10 +3570,155 @@
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
     </comp>
+    <comp lib="0" loc="(280,330)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="ECON_W"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(450,240)" name="Tunnel">
+      <a name="label" val="EEIF"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
     <comp lib="0" loc="(80,280)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="RD"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(110,70)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="label" val="EEADR"/>
+      <a name="labelloc" val="south"/>
+    </comp>
+    <comp lib="0" loc="(80,260)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="WR"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(380,200)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(80,200)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="EEIF"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(440,340)" name="Ground">
+      <a name="facing" val="east"/>
+      <a name="width" val="5"/>
+    </comp>
+    <comp lib="0" loc="(450,310)" name="Tunnel">
+      <a name="label" val="WRERR"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(440,100)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="8"/>
+      <a name="label" val="EEDATA_out"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(80,220)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="WRERR"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(450,330)" name="Tunnel">
+      <a name="label" val="WREN"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="4" loc="(390,140)" name="Counter">
+      <a name="width" val="2"/>
+      <a name="max" val="0x3"/>
+    </comp>
+    <comp lib="1" loc="(340,280)" name="OR Gate">
+      <a name="facing" val="south"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(420,320)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="1" loc="(420,240)" name="Buffer">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="1" loc="(250,260)" name="NOT Gate">
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="0" loc="(80,240)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="WREN"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(280,350)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="EEIF"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(420,150)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+      <a name="label" val="EEIF"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="0" loc="(290,50)" name="Probe">
+      <a name="facing" val="south"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(440,40)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="8"/>
+      <a name="label" val="EEDATA"/>
+      <a name="labelloc" val="north"/>
+    </comp>
+    <comp lib="0" loc="(440,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="2"/>
+      <a name="label" val="CLK_RST"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(230,110)" name="NOT Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="20"/>
+    </comp>
+    <comp lib="1" loc="(280,270)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="2" loc="(410,290)" name="Multiplexer">
+      <a name="facing" val="south"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(110,120)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="label" val="EECON1"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="1" loc="(420,360)" name="Buffer">
+      <a name="facing" val="south"/>
+      <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(280,310)" name="Probe">
+      <a name="radix" val="16"/>
+      <a name="label" val="DAT_W"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 10"/>
+    </comp>
+    <comp lib="1" loc="(330,40)" name="Controlled Buffer">
+      <a name="facing" val="west"/>
+      <a name="width" val="8"/>
+      <a name="control" val="left"/>
+    </comp>
+    <comp lib="1" loc="(160,150)" name="OR Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
   </circuit>
   <circuit name="Timing">
@@ -3803,30 +3799,83 @@
     <wire from="(340,170)" to="(340,230)"/>
     <wire from="(120,330)" to="(320,330)"/>
     <wire from="(120,80)" to="(190,80)"/>
-    <comp lib="6" loc="(392,265)" name="Text">
-      <a name="text" val="PRESCALER"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    <comp lib="0" loc="(120,330)" name="Pin">
+      <a name="label" val="WDT"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="2" loc="(500,320)" name="Multiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="enable" val="false"/>
     </comp>
     <comp lib="0" loc="(90,120)" name="Probe">
       <a name="label" val="TOCS"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
+    <comp lib="0" loc="(510,280)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="9"/>
+      <a name="label" val="rate"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
     <comp lib="0" loc="(60,200)" name="Constant">
       <a name="width" val="8"/>
       <a name="value" val="0x29"/>
     </comp>
-    <comp lib="0" loc="(120,280)" name="Pin">
-      <a name="label" val="RST"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    <comp lib="0" loc="(90,100)" name="Probe">
+      <a name="label" val="PSA"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp lib="2" loc="(500,80)" name="Multiplexer">
-      <a name="enable" val="false"/>
+    <comp lib="0" loc="(90,140)" name="Probe">
+      <a name="label" val="T0SE"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="6" loc="(392,265)" name="Text">
+      <a name="text" val="PRESCALER"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(140,90)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp loc="(430,270)" name="Prescsaler"/>
+    <comp lib="0" loc="(190,130)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="T0SE"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(430,280)" name="Probe">
+      <a name="radix" val="10unsigned"/>
     </comp>
     <comp lib="0" loc="(270,100)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="TOCS"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
+    </comp>
+    <comp lib="0" loc="(530,80)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="rate"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="2" loc="(380,200)" name="Multiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(120,280)" name="Pin">
+      <a name="label" val="RST"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(140,50)" name="Clock">
+      <a name="facing" val="south"/>
+      <a name="lowDuration" val="3"/>
+    </comp>
+    <comp lib="0" loc="(120,60)" name="Pin">
+      <a name="label" val="SEQ"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="0" loc="(80,230)" name="Pin">
       <a name="facing" val="north"/>
@@ -3835,15 +3884,12 @@
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(120,60)" name="Pin">
-      <a name="label" val="SEQ"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
     <comp lib="2" loc="(280,70)" name="Multiplexer">
       <a name="enable" val="false"/>
     </comp>
-    <comp lib="0" loc="(140,90)" name="Clock">
-      <a name="facing" val="north"/>
+    <comp lib="1" loc="(230,90)" name="XOR Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(530,320)" name="Pin">
       <a name="facing" val="west"/>
@@ -3852,16 +3898,17 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
-    <comp lib="0" loc="(140,50)" name="Clock">
+    <comp lib="0" loc="(360,160)" name="Probe">
       <a name="facing" val="south"/>
-      <a name="lowDuration" val="3"/>
+      <a name="label" val="PSA"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
     </comp>
-    <comp loc="(430,270)" name="Prescsaler"/>
-    <comp lib="0" loc="(430,280)" name="Probe">
+    <comp lib="0" loc="(340,260)" name="Probe">
+      <a name="facing" val="south"/>
       <a name="radix" val="10unsigned"/>
     </comp>
-    <comp lib="2" loc="(380,200)" name="Multiplexer">
-      <a name="selloc" val="tr"/>
+    <comp lib="2" loc="(500,80)" name="Multiplexer">
       <a name="enable" val="false"/>
     </comp>
     <comp lib="0" loc="(80,190)" name="Splitter">
@@ -3876,59 +3923,8 @@
       <a name="bit6" val="none"/>
       <a name="bit7" val="none"/>
     </comp>
-    <comp lib="0" loc="(120,330)" name="Pin">
-      <a name="label" val="WDT"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(360,160)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="label" val="PSA"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(90,100)" name="Probe">
-      <a name="label" val="PSA"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(190,130)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="T0SE"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(510,280)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="9"/>
-      <a name="label" val="rate"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="2" loc="(500,320)" name="Multiplexer">
-      <a name="selloc" val="tr"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(340,260)" name="Probe">
-      <a name="facing" val="south"/>
-      <a name="radix" val="10unsigned"/>
-    </comp>
-    <comp lib="1" loc="(230,90)" name="XOR Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(120,80)" name="Pin">
       <a name="label" val="T0CLK"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(90,140)" name="Probe">
-      <a name="label" val="T0SE"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 8"/>
-    </comp>
-    <comp lib="0" loc="(530,80)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="rate"/>
-      <a name="labelloc" val="east"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
   </circuit>
@@ -3986,25 +3982,18 @@
     <wire from="(110,140)" to="(180,140)"/>
     <wire from="(180,210)" to="(310,210)"/>
     <wire from="(320,170)" to="(390,170)"/>
-    <comp lib="5" loc="(200,240)" name="Button">
+    <comp lib="1" loc="(190,80)" name="OR Gate">
       <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="5" loc="(160,240)" name="Button">
       <a name="facing" val="north"/>
     </comp>
-    <comp lib="0" loc="(290,140)" name="Ground">
-      <a name="facing" val="east"/>
-    </comp>
-    <comp lib="0" loc="(110,160)" name="Probe">
-      <a name="label" val="Sleep"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(120,220)" name="Splitter"/>
-    <comp lib="0" loc="(110,140)" name="Probe">
-      <a name="label" val="clrwdt"/>
-      <a name="labelloc" val="north"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    <comp lib="1" loc="(280,70)" name="OR Gate">
+      <a name="facing" val="north"/>
+      <a name="size" val="30"/>
+      <a name="inputs" val="3"/>
     </comp>
     <comp lib="0" loc="(390,170)" name="Pin">
       <a name="facing" val="west"/>
@@ -4014,6 +4003,45 @@
       <a name="label" val="WDT_TIMER"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(300,30)" name="Splitter">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(110,160)" name="Probe">
+      <a name="label" val="Sleep"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(320,230)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="label" val="WDT_CLK"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(280,230)" name="Clock">
+      <a name="highDuration" val="4"/>
+      <a name="lowDuration" val="4"/>
+      <a name="label" val="WDT"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
+    </comp>
+    <comp lib="0" loc="(290,140)" name="Ground">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(110,140)" name="Probe">
+      <a name="label" val="clrwdt"/>
+      <a name="labelloc" val="north"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(230,60)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="PD"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="5" loc="(200,240)" name="Button">
+      <a name="facing" val="north"/>
     </comp>
     <comp lib="0" loc="(340,30)" name="Pin">
       <a name="facing" val="west"/>
@@ -4027,6 +4055,16 @@
       <a name="facing" val="north"/>
       <a name="size" val="20"/>
     </comp>
+    <comp lib="4" loc="(320,170)" name="Counter">
+      <a name="width" val="10"/>
+      <a name="max" val="0x3ff"/>
+      <a name="trigger" val="falling"/>
+    </comp>
+    <comp lib="0" loc="(280,180)" name="Pin">
+      <a name="label" val="wdt"/>
+      <a name="labelloc" val="south"/>
+      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
     <comp lib="0" loc="(110,220)" name="Pin">
       <a name="width" val="2"/>
       <a name="label" val="CLRWDT/SLEEP"/>
@@ -4034,52 +4072,10 @@
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
     <comp lib="4" loc="(200,40)" name="D Flip-Flop"/>
-    <comp lib="1" loc="(280,70)" name="OR Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="3"/>
-    </comp>
-    <comp lib="1" loc="(190,80)" name="OR Gate">
-      <a name="facing" val="north"/>
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
-    </comp>
+    <comp lib="0" loc="(120,220)" name="Splitter"/>
     <comp lib="0" loc="(290,60)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="TO"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(300,30)" name="Splitter">
-      <a name="facing" val="west"/>
-    </comp>
-    <comp lib="4" loc="(320,170)" name="Counter">
-      <a name="width" val="10"/>
-      <a name="max" val="0x3ff"/>
-      <a name="trigger" val="falling"/>
-    </comp>
-    <comp lib="0" loc="(280,230)" name="Clock">
-      <a name="highDuration" val="4"/>
-      <a name="lowDuration" val="4"/>
-      <a name="label" val="WDT"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 12"/>
-    </comp>
-    <comp lib="0" loc="(280,180)" name="Pin">
-      <a name="label" val="wdt"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(320,230)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="label" val="WDT_CLK"/>
-      <a name="labelloc" val="south"/>
-      <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(230,60)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="PD"/>
       <a name="labelloc" val="south"/>
       <a name="labelfont" val="TeX Gyre Bonum Math plain 10"/>
     </comp>
@@ -4202,9 +4198,18 @@
     <wire from="(280,230)" to="(280,290)"/>
     <wire from="(120,140)" to="(120,260)"/>
     <wire from="(200,350)" to="(200,410)"/>
-    <comp lib="0" loc="(140,310)" name="Constant">
+    <comp lib="2" loc="(480,190)" name="Multiplexer">
+      <a name="selloc" val="tr"/>
+      <a name="enable" val="false"/>
+    </comp>
+    <comp lib="0" loc="(330,230)" name="Constant">
       <a name="width" val="8"/>
-      <a name="value" val="0x3"/>
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="4" loc="(360,230)" name="Counter"/>
+    <comp lib="0" loc="(140,410)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x7f"/>
     </comp>
     <comp lib="0" loc="(550,250)" name="Probe">
       <a name="facing" val="south"/>
@@ -4213,38 +4218,13 @@
       <a name="labelloc" val="north"/>
       <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
     </comp>
-    <comp lib="0" loc="(160,230)" name="Constant">
+    <comp lib="4" loc="(210,90)" name="Register">
       <a name="width" val="3"/>
-      <a name="value" val="0x0"/>
     </comp>
     <comp lib="2" loc="(270,230)" name="Multiplexer">
       <a name="selloc" val="tr"/>
       <a name="width" val="3"/>
       <a name="enable" val="false"/>
-    </comp>
-    <comp lib="0" loc="(140,390)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x3f"/>
-    </comp>
-    <comp lib="2" loc="(480,190)" name="Multiplexer">
-      <a name="selloc" val="tr"/>
-      <a name="enable" val="false"/>
-    </comp>
-    <comp lib="6" loc="(324,133)" name="Text">
-      <a name="text" val="clk"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
-    </comp>
-    <comp lib="0" loc="(120,110)" name="Pin">
-      <a name="width" val="3"/>
-      <a name="label" val="PS"/>
-    </comp>
-    <comp lib="0" loc="(330,230)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x0"/>
-    </comp>
-    <comp lib="3" loc="(420,290)" name="Comparator"/>
-    <comp lib="0" loc="(360,280)" name="Probe">
-      <a name="radix" val="10signed"/>
     </comp>
     <comp lib="0" loc="(620,180)" name="Pin">
       <a name="facing" val="west"/>
@@ -4253,12 +4233,59 @@
       <a name="labelloc" val="east"/>
       <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
     </comp>
+    <comp lib="0" loc="(360,310)" name="Probe">
+      <a name="radix" val="10signed"/>
+    </comp>
+    <comp lib="3" loc="(270,80)" name="Comparator">
+      <a name="width" val="3"/>
+    </comp>
+    <comp lib="0" loc="(140,290)" name="Constant">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="6" loc="(324,133)" name="Text">
+      <a name="text" val="clk"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(140,370)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x1f"/>
+    </comp>
+    <comp lib="3" loc="(420,290)" name="Comparator"/>
+    <comp lib="1" loc="(540,180)" name="AND Gate">
+      <a name="size" val="30"/>
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(140,430)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0xff"/>
+    </comp>
+    <comp lib="0" loc="(160,230)" name="Constant">
+      <a name="width" val="3"/>
+      <a name="value" val="0x0"/>
+    </comp>
     <comp lib="0" loc="(110,180)" name="Pin">
       <a name="label" val="PSA"/>
     </comp>
-    <comp lib="6" loc="(324,155)" name="Text">
-      <a name="text" val="prescaler to wdt and rate=1"/>
-      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    <comp lib="0" loc="(480,250)" name="Constant">
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(120,110)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="label" val="PS"/>
+    </comp>
+    <comp lib="0" loc="(140,330)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x7"/>
+    </comp>
+    <comp lib="0" loc="(360,280)" name="Probe">
+      <a name="radix" val="10signed"/>
+    </comp>
+    <comp lib="3" loc="(200,220)" name="Subtractor">
+      <a name="width" val="3"/>
+    </comp>
+    <comp lib="0" loc="(140,390)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x3f"/>
     </comp>
     <comp lib="2" loc="(300,330)" name="Multiplexer">
       <a name="selloc" val="tr"/>
@@ -4266,31 +4293,20 @@
       <a name="width" val="8"/>
       <a name="enable" val="false"/>
     </comp>
-    <comp lib="0" loc="(110,260)" name="Pin">
-      <a name="label" val="CLK"/>
-    </comp>
-    <comp lib="3" loc="(270,80)" name="Comparator">
-      <a name="width" val="3"/>
-    </comp>
     <comp lib="1" loc="(320,240)" name="NOT Gate">
       <a name="size" val="20"/>
     </comp>
-    <comp lib="4" loc="(360,230)" name="Counter"/>
-    <comp lib="0" loc="(140,370)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x1f"/>
-    </comp>
     <comp lib="3" loc="(520,260)" name="Adder"/>
-    <comp lib="3" loc="(200,220)" name="Subtractor">
-      <a name="width" val="3"/>
+    <comp lib="0" loc="(110,280)" name="Pin">
+      <a name="label" val="RST"/>
     </comp>
-    <comp lib="0" loc="(140,330)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x7"/>
-    </comp>
-    <comp lib="1" loc="(540,180)" name="AND Gate">
-      <a name="size" val="30"/>
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(560,270)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="9"/>
+      <a name="label" val="rate"/>
+      <a name="labelloc" val="east"/>
+      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
     </comp>
     <comp lib="0" loc="(550,270)" name="Splitter">
       <a name="facing" val="west"/>
@@ -4305,44 +4321,24 @@
       <a name="bit7" val="0"/>
       <a name="bit8" val="1"/>
     </comp>
-    <comp lib="4" loc="(210,90)" name="Register">
-      <a name="width" val="3"/>
+    <comp lib="0" loc="(140,310)" name="Constant">
+      <a name="width" val="8"/>
+      <a name="value" val="0x3"/>
+    </comp>
+    <comp lib="6" loc="(324,155)" name="Text">
+      <a name="text" val="prescaler to wdt and rate=1"/>
+      <a name="font" val="TeX Gyre Bonum Math plain 10"/>
+    </comp>
+    <comp lib="0" loc="(110,260)" name="Pin">
+      <a name="label" val="CLK"/>
     </comp>
     <comp lib="0" loc="(140,350)" name="Constant">
       <a name="width" val="8"/>
       <a name="value" val="0xf"/>
     </comp>
-    <comp lib="0" loc="(110,280)" name="Pin">
-      <a name="label" val="RST"/>
-    </comp>
-    <comp lib="0" loc="(360,310)" name="Probe">
-      <a name="radix" val="10signed"/>
-    </comp>
-    <comp lib="0" loc="(560,270)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="width" val="9"/>
-      <a name="label" val="rate"/>
-      <a name="labelloc" val="east"/>
-      <a name="labelfont" val="Te X Gyre Bonum plain 12"/>
-    </comp>
-    <comp lib="0" loc="(480,250)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
     <comp lib="1" loc="(280,50)" name="NOT Gate">
       <a name="facing" val="north"/>
       <a name="size" val="20"/>
-    </comp>
-    <comp lib="0" loc="(140,430)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0xff"/>
-    </comp>
-    <comp lib="0" loc="(140,410)" name="Constant">
-      <a name="width" val="8"/>
-      <a name="value" val="0x7f"/>
-    </comp>
-    <comp lib="0" loc="(140,290)" name="Constant">
-      <a name="width" val="8"/>
     </comp>
   </circuit>
   <circuit name="tester">
@@ -4402,97 +4398,22 @@
     <wire from="(200,380)" to="(340,380)"/>
     <wire from="(210,370)" to="(350,370)"/>
     <wire from="(60,240)" to="(130,240)"/>
-    <comp lib="0" loc="(440,230)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="jump"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(410,360)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="carry"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(560,120)" name="Constant">
-      <a name="width" val="7"/>
-      <a name="value" val="0xb"/>
-    </comp>
-    <comp lib="0" loc="(440,290)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="eegi"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp loc="(190,100)" name="Instruction reg">
-      <a name="label" val="Instruction reg"/>
-    </comp>
-    <comp lib="0" loc="(270,50)" name="Probe">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(290,170)" name="Probe">
+      <a name="facing" val="north"/>
       <a name="radix" val="16"/>
-    </comp>
-    <comp lib="4" loc="(140,50)" name="Counter">
-      <a name="width" val="14"/>
-      <a name="max" val="0x3fff"/>
-    </comp>
-    <comp lib="0" loc="(350,340)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
-    </comp>
-    <comp lib="3" loc="(620,110)" name="Comparator">
-      <a name="width" val="7"/>
-      <a name="mode" val="unsigned"/>
-    </comp>
-    <comp lib="0" loc="(440,210)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="reg_w"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp loc="(420,180)" name="InstructionDecode">
-      <a name="label" val="decoder"/>
-    </comp>
-    <comp lib="0" loc="(200,100)" name="Probe">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(440,190)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="result_w"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(440,310)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="clrwdt"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(40,270)" name="Clock">
-      <a name="facing" val="north"/>
-    </comp>
-    <comp lib="0" loc="(560,100)" name="Constant">
-      <a name="width" val="7"/>
-      <a name="value" val="0x4b"/>
     </comp>
     <comp lib="0" loc="(440,330)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="sleep"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(440,270)" name="Probe">
-      <a name="facing" val="west"/>
-      <a name="label" val="pop"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(210,150)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="appear" val="center"/>
-      <a name="bit0" val="1"/>
-      <a name="bit1" val="0"/>
+    <comp loc="(420,180)" name="InstructionDecode">
+      <a name="label" val="decoder"/>
     </comp>
     <comp lib="5" loc="(170,90)" name="Button">
       <a name="facing" val="south"/>
       <a name="label" val="Skip"/>
       <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(160,110)" name="Constant">
-      <a name="value" val="0x0"/>
     </comp>
     <comp lib="0" loc="(390,340)" name="Probe">
       <a name="facing" val="south"/>
@@ -4500,14 +4421,89 @@
       <a name="label" val="STEP"/>
       <a name="labelloc" val="north"/>
     </comp>
-    <comp lib="0" loc="(290,170)" name="Probe">
+    <comp lib="0" loc="(210,150)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(410,360)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="carry"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(350,340)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="appear" val="center"/>
+      <a name="bit0" val="1"/>
+      <a name="bit1" val="0"/>
+    </comp>
+    <comp lib="0" loc="(440,270)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="pop"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(200,100)" name="Probe">
       <a name="facing" val="north"/>
-      <a name="radix" val="16"/>
+    </comp>
+    <comp loc="(190,100)" name="Instruction reg">
+      <a name="label" val="Instruction reg"/>
     </comp>
     <comp lib="0" loc="(440,250)" name="Probe">
       <a name="facing" val="west"/>
       <a name="label" val="push"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(270,50)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="radix" val="16"/>
+    </comp>
+    <comp lib="0" loc="(160,110)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(440,230)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="jump"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,310)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="clrwdt"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="4" loc="(140,50)" name="Counter">
+      <a name="width" val="14"/>
+      <a name="max" val="0x3fff"/>
+    </comp>
+    <comp lib="0" loc="(440,210)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="reg_w"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(440,190)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="result_w"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(560,120)" name="Constant">
+      <a name="width" val="7"/>
+      <a name="value" val="0xb"/>
+    </comp>
+    <comp lib="0" loc="(40,270)" name="Clock">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="0" loc="(440,290)" name="Probe">
+      <a name="facing" val="west"/>
+      <a name="label" val="eegi"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="3" loc="(620,110)" name="Comparator">
+      <a name="width" val="7"/>
+      <a name="mode" val="unsigned"/>
+    </comp>
+    <comp lib="0" loc="(560,100)" name="Constant">
+      <a name="width" val="7"/>
+      <a name="value" val="0x4b"/>
     </comp>
     <comp lib="5" loc="(60,270)" name="Button">
       <a name="facing" val="north"/>

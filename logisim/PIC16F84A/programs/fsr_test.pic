@@ -1,0 +1,29 @@
+##################################################################################
+## Testing indirect addressing
+##      compiler option to initalize tables and variables
+##      label offset
+##      allowing variable addresses to be parsed to literal oriented operation
+##################################################################################
+####################
+#data
+####################
+# The compiler is going to add 2 lines per entry to initialize the variables/tables
+var=3               # Variable at address 0
+table=1,2,5,4,3     # Table of size 5 (entry address shoud be 1)
+####################
+# program : clear the table
+####################
+NOP                 # identifying the end of data
+MOVLW table         # load pointer to FSR
+MOVWF FSR
+MOVLW 5             # initialize counter of size table
+MOVWF counter
+# loop
+next:CLRF INDF      # clear INDF register
+INCF FSR 1          # inc pointer
+DECFSZ counter 1    # decrement counter
+GOTO next           # NO, clear next
+# end loop
+MOVF table 0        # verify the first entry of the table is 0
+MOVF var 0          # verify that var still contains value 3
+END

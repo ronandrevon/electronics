@@ -223,10 +223,10 @@ Asynchronous interrupt :
     - General purpose registers involved only
 
 ### FSR
-- [ ] **FSR** File select register indirect addressing feature, **ALU**, **skip**, **GOTO** operations : 
+- [x] **FSR** File select register indirect addressing feature, **ALU**, **skip**, **GOTO** operations : 
     - [fsr_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/fsr_test.txt)
     - INCF alu operations
-    - BTFSS skip based operations
+    - INCFSZ skip based operations
     - GOTO branch operation
     - read, write to FSR
     - indirect addressing read&write

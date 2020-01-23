@@ -19,37 +19,66 @@ SFR     = ['INDF','TMR0','OPTION','PCL','STATUS','FSR','PORTA','TRISA','PORTB','
 
 #### def : main program
 def compile_program(program_file,v=False,e=False):
-    lines    = load_program(program_file)
-    lines,lab,var = preprocess_lines(lines,verbose)
-    obj_str  = compile_lines(lines,lab,var,e)
-    obj_file = write_out(program_file,obj_str)
+    lines           = load_program(program_file)
+    lines,lab,var   = preprocess_lines(lines,verbose)
+    obj_str         = compile_lines(lines,lab,var,e)
+    obj_file        = write_out(program_file,obj_str)
     return obj_file
 
 ########
 def preprocess_lines(lines,verbose=False) : 
-    labels,l,var,instructions = dict(),0,[],[]
+    var_dict = dict(zip(['INDF','PCL','STATUS','FSR','PCLATH','INTCON'],[0,2,3,4,10,11]))
+    var_dict.update(dict(zip(['TMR0'  ,'TRISA','TRISB','EECON1','EECON2'],[1,5,6,8,9])))
+    var_dict.update(dict(zip(['OPTION','PORTA','PORTB','EEDATA','EEADR' ],[1,5,6,8,9])))
+    lines = [line.split("#")[0] for line in lines] # remove comments
+    lines = [line for line in lines if line] # remove empty lines
+    instructions = ['NOP']
+    ## check for variables in header
+    var,line,lc,lv = dict(),lines[0],1,12
+    while "=" in line : 
+        var_name,vals   = line.split("=")
+        vals            = vals.split(',');nv=len(vals)
+        var[var_name]   = lv
+        instructions    += ['MOVLW ' +vals[0].replace('  ',''), 'MOVWF '+var_name]
+        # if the variable is an array
+        for i in range(1,nv) : 
+            var[var_name+str(i)] = lv+i
+            instructions += ['MOVLW ' +vals[i].replace('  ',''), 'MOVWF '+var_name+str(i)];
+        lv+=nv
+        line=lines[lc];lc+=1;
+    lines = lines[lc-1:]
+    var_dict.update(var)
+    if verbose : 
+        print(green+'   data section : '+black)
+        print(yellow+'variables : '+blue,var,black)
+        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
+    
+    ## preprocess program text
+    li0,li, labels, var_tmp = len(instructions),len(instructions), dict(), []
     for line in lines : 
-        line = line.split("#")[0].split(':')
+        ## check for labels
+        line = line.split(":")
         if len(line)>1 : 
             lab,instr = line
         else : 
             lab,instr = '',line[0]
+        #get instruction type
         op = instr.split(" ")[0]
         if op in df_PROM.index : 
-            if lab : labels[lab] = l
-            instructions.append(instr.replace('  ',''));l+=1
+            if lab : labels[lab] = li
+            instructions.append(instr.replace('  ',''));li+=1
             if instruction_type[op] in ['byte','bit','mem'] : 
-                var.append( instr.split(" ")[1])
-    var = [v for v in np.unique(var) if v not in SFR]
-    var_dict = dict(zip(['INDF','PCL','STATUS','FSR','PCLATH','INTCON'],[0,2,3,4,10,11]))
-    var_dict.update(dict(zip(['TMR0'  ,'TRISA','TRISB','EECON1','EECON2'],[1,5,6,8,9])))
-    var_dict.update(dict(zip(['OPTION','PORTA','PORTB','EEDATA','EEADR' ],[1,5,6,8,9])))
-    var_dict.update(dict(zip(np.unique(var),np.arange(len(var))+12)))
+                var_tmp.append( instr.split(" ")[1])
+    # resolve address of variables created on the fly
+    var_tmp = [v for v in np.unique(var_tmp) if v not in var_dict.keys()]
+    var_tmp = dict(zip(var_tmp, np.arange(len(var_tmp))+lv))
     if verbose : 
-        print(yellow+'program preprocess : ')
-        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
-        print(yellow+'labels:'+blue,labels,yellow+'variables:'+blue,var,black)
-        print(yellow+'instructions '+red,np.unique([i.split(' ')[0] for i in instructions]),black)
+        print(green+'   text section : ')
+        print(yellow+'labels:'+blue,labels)
+        print(yellow+'variables:'+blue,var_tmp,black)
+        print(yellow+'instructions : '+red,np.unique([i.split(' ')[0] for i in instructions ]),black)
+        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(li0,len(instructions)),instructions[li0:]))+black);
+    var_dict.update(var_tmp)
     return instructions,labels,var_dict
     
 def encode_instr(instr_str,labels,var):
@@ -68,6 +97,7 @@ def encode_instr(instr_str,labels,var):
         instr = opcode[op] + bin_s(labels[a],11)
     elif instruction_type[op] == 'literal' :
         op,k = instr_str.split(" ")[:2]
+        if k in var.keys() : k=var[k]     # allowing variable addresses to be parsed as literal
         instr = opcode[op] + bin_s(k,8)
     elif instruction_type[op] == 'control' :
         instr = opcode[op]
@@ -86,7 +116,7 @@ def compile_lines(lines,labels,var,e=False):
         for lab in labels : labels_hex[lab] = '0x'+format(labels[lab],'x').zfill(2)
         gpr_var   = [v for v in var if v not in set(SFR) ]
         variables = dict(zip(gpr_var, [(var[v]-12,'0x'+format(var[v],'x').zfill(2)) for v in gpr_var]))
-        print(green+'Compiled program : ')
+        print(green+'\n    Compiled program : ')
         print(yellow+'GPR variables :'+blue,variables,black)
         print(yellow+'labels        :'+blue,labels_hex)
         print(yellow+'addr  '+'instruction'.ljust(20)+'opcode operand   hex_instr'+black)
