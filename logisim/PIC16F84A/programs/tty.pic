@@ -1,0 +1,148 @@
+##################################################################################
+## Programs used for chatting with a bot
+##      A terminal, keyboard and shift registers are needed for the user to interact
+##      Some multiplexers are required to ensure who speaks on the io line
+#       Interrupt occurs on change on RB7
+########################################################################
+##### Program text
+########################################################################
+# The first 4 instructions are jumps to handle data section and jump to 
+# program start while keeping the interrupt vector at address 0004
+NOP
+GOTO data   # Do the data section first 
+init:NOP    # very important as it 
+GOTO start
+########################################################################
+# Interrupt vector where the PC falls back after an interrupt
+########################################################################
+#push W and STATUS
+MOVWF w_tmp
+SWAPF STATUS 0
+MOVWF sw_tmp
+#interrupt service routine. 
+# From RBIF as this is the interrupt allowed to occur
+# It happens once return carriage has been type on the keyboard
+CALL reply
+#pop W and STATUS
+SWAPF STATUS 0
+MOVWF STATUS
+SWAPF w_tmp 1
+SWAPF w_tmp 0
+RETFIE
+########################################################################
+#
+#
+#
+########################################################################
+#The program starts here
+########################################################################
+start:NOP
+#configuring ports
+# PORTA output
+#PORTA:1 used to shift register into PORTB
+#PORTA:2 used to write PORTB to screen line
+#PORTA:3 used to re-enable PORTB on screen bus
+BSF STATUS 5        #  Bank 1
+#MOVLW 14           # xxx01110 = 14
+#MOVWF TRISA        # PORTA:3-1 enabled
+BSF TRISB 7         # PORTB:7 is input for interrupt on change
+BCF STATUS 5        #  Bank 0
+# enabling interrupts GIE,0,0,0,RBIE,0,0,0=10001000=136
+MOVLW 136
+MOVWF INTCON
+BSF PORTA 3         #reset latch interrupt if already set
+BCF PORTA 3         #
+# let the program go forever while waiting for interrupts
+end:GOTO end
+########################################################################
+#
+#
+#
+#
+########################################################################
+# The reply routine
+########################################################################
+reply:NOP
+##### Parse characters one at a time
+#Set PORTB:7-0 as inputs
+BSF STATUS 5        #  Bank 1
+MOVLW 127
+MOVWF TRISB         # PORTB:6-0 are now inputs
+BCF STATUS 5        #  Bank 0
+#init counter and FSR points to buffer
+MOVLW 4             # The buffer is 4 bytes
+MOVWF counter
+MOVLW buffer
+MOVWF FSR
+#parse
+parse:NOP
+BSF PORTA 1         # read next byte
+BCF PORTA 1         # prevent further reading
+CLRW
+MOVF PORTB 0        # load from PORTB
+BTFSC STATUS 0      # if not 0x00 character loop back
+GOTO decf
+MOVWF INDF          #   store in buffer
+INCF FSR 1          #   increment FSR
+decf:DECFSZ counter 1
+GOTO parse
+#
+##### Analyse message 
+# Assign reply to bisou by default and change it if Hi was said
+MOVLW bisou
+MOVWF reply
+#compare(if buffer=='Hi', reply 'Hello', else 'bisou')
+MOVLW buffer
+MOVWF FSR
+# Hi=x48,x69
+MOVLW 72        #x48=72 : first character
+MOVF INDF 1
+BTFSS STATUS 0
+GOTO write_reply
+INCF FSR 1
+MOVLW 105       #x69=105 : second character
+MOVF INDF 1
+BTFSS STATUS 0
+GOTO write_reply
+INCF FSR 1
+# if we reached this point, Hi was the message, assign reply to Hello
+MOVLW Hello
+MOVWF reply
+#
+##### Write reply 
+write_reply:NOP
+#Set PORTB:6-0 as outputs :10000000
+BSF STATUS 5        #  Bank 1
+MOVLW 128
+MOVWF TRISB
+BCF STATUS 5        #  Bank 0
+#write to terminal
+MOVF reply 0        #text to display
+MOVWF FSR           #assign pointer to it
+MOVLW 6             #initialize counter (each replies are 6 bytes)
+MOVWF counter
+rep:MOVF INDF 0     # load byte
+MOVWF PORTB         # write to portB
+BSF PORTA 2         # write to screen 
+BCF PORTA 2         #
+INCF FSR 1          #increment pointer
+DECFSZ counter 1    #loop back if not done
+GOTO rep
+#
+##### Terminate and restore 
+BSF PORTA 3         # re-enable keyboard+shift register 
+BCF PORTA 3
+BCF INTCON 0        # clearing RBIF bit
+RETLW 0             # return indicating everything was ok
+#
+#
+#
+########################################################################
+##### data section
+########################################################################
+data:NOP
+END                 # Stop compiler here
+buffer=0,0,0,0                  # Buffer containing the parsed message
+bisou=x62,x69,x73,x6f,x75,x0a   # Hexadecimal ascii encoding for bisou
+Hello=x48,x65,x6c,x6c,x6f,x0a   # 
+# GOTO init                     # added automatically by the compiler

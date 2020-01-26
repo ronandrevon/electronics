@@ -32,29 +32,31 @@ def preprocess_lines(lines,verbose=False) :
     var_dict.update(dict(zip(['OPTION','PORTA','PORTB','EEDATA','EEADR' ],[1,5,6,8,9])))
     lines = [line.split("#")[0] for line in lines] # remove comments
     lines = [line for line in lines if line] # remove empty lines
-    instructions = ['NOP']
-    ## check for variables in header
-    var,line,lc,lv = dict(),lines[0],1,12
+    instructions_dat = []
+    ## check for variable 
+    var,line,lc,lv = dict(),lines[-1],len(lines)-1,12
     while "=" in line : 
         var_name,vals   = line.split("=")
         vals            = vals.split(',');nv=len(vals)
+        if 'x' in vals[0] : vals=[str(int(v[1:],16)) for v in vals ] #handle hexadecimal parsing for ascii
         var[var_name]   = lv
-        instructions    += ['MOVLW ' +vals[0].replace('  ',''), 'MOVWF '+var_name]
+        instructions_dat    += ['MOVLW ' +vals[0].replace('  ',''), 'MOVWF '+var_name]
         # if the variable is an array
         for i in range(1,nv) : 
             var[var_name+str(i)] = lv+i
-            instructions += ['MOVLW ' +vals[i].replace('  ',''), 'MOVWF '+var_name+str(i)];
+            instructions_dat += ['MOVLW ' +vals[i].replace('  ',''), 'MOVWF '+var_name+str(i)];
         lv+=nv
-        line=lines[lc];lc+=1;
-    lines = lines[lc-1:]
+        lc-=1;line=lines[lc];
+    lines = lines[:lc+1]
     var_dict.update(var)
+    instructions_dat += ['GOTO init']
     if verbose : 
         print(green+'   data section : '+black)
         print(yellow+'variables : '+blue,var,black)
-        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
+        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions_dat)),instructions_dat))+black)
     
     ## preprocess program text
-    li0,li, labels, var_tmp = len(instructions),len(instructions), dict(), []
+    instructions,li, labels, var_tmp = [],0, dict(), []
     for line in lines : 
         ## check for labels
         line = line.split(":")
@@ -76,9 +78,10 @@ def preprocess_lines(lines,verbose=False) :
         print(green+'   text section : ')
         print(yellow+'labels:'+blue,labels)
         print(yellow+'variables:'+blue,var_tmp,black)
-        print(yellow+'instructions : '+red,np.unique([i.split(' ')[0] for i in instructions ]),black)
-        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(li0,len(instructions)),instructions[li0:]))+black);
+        print(yellow+'instructions : '+red,np.unique([i.split(' ')[0] for i in instructions]),black)
+        print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
     var_dict.update(var_tmp)
+    instructions+=instructions_dat
     return instructions,labels,var_dict
     
 def encode_instr(instr_str,labels,var):

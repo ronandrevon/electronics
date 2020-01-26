@@ -5,6 +5,8 @@
 2. [Memory and special registers](#memory-and-special-registers)
 1. [Instruction set](#instruction-set)
 1. [Examples](#examples)
+    - [mult](#multiplication)
+    - [tty](#tty)
 1. [Folders and files](#folders-and-files-structure)
 1. [Architecture details](#architecture-details)
 1. [Tests](#tests)
@@ -15,7 +17,6 @@
     - [function calls](#call)
     - [io](#io)
     - [interrupts](#memory)
-    - [mult](#mult)
     - [sleep mode](#sleep)
 
 This architecture is inspired by the 
@@ -29,13 +30,13 @@ General features :
 - 35 instruction set
 - 1024 instructions of program memory each 14 bit wide
 - 68 General purpose registers each 1 byte wide
-- 13 I/O ports : RA0-RA4 and RB0-RB7
+- 13 I/O ports : RA4:RA0 and RB7:RB0
 
 Special features : 
 
 - 4 Interruption sources (interrupt vector 004) on : 
     - external asynchronous on port **RB0/INT**
-    - change on ports **RB4:RB7**
+    - change on ports **RB7:RB4**
     - timer **TMR0** time out
     - data **EEPROM** write complete
 - Function calls and return from interrupt through 8 level **stack**
@@ -185,8 +186,27 @@ XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 ### Multiplcation
 - [x] Multiplication program : 
     - [mult_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mult_test.txt)
-    - ADDWF, BSF, DECFSZ, ,BTFSC, GOTO
+    - ADDWF, BSF, DECFSZ,BTFSC, GOTO
     - STATUS registers Z and C bits read during execution
+
+### TTY
+- [ ] basic terminal program : 
+    - [tty.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tty.txt)
+    - interrupts
+    - input output interaction, parse from keyboard and write to screen
+
+- Fix : 
+    - [x] data, interrupts, 2 level stack,parsing,comparing, reply pointer, output reply=bisou/Hello dependent on message
+    - [x] Fix parsing first character parsing : falling edge on shift register
+    - [x] Check ignore NULL character : proper if statement with jump if not 
+    - [x] Fix INT error while PORTB output(pull-down fix put overwrite PORTB) : added memory latch checking state change
+    - [x] Fix 68 instead 69 : move pull down from the port level to the interrupt level
+
+- Minor improvment : 
+    - [ ] Fix multi loop issue
+    - [ ] Include return carriage at the input screen 
+    - [ ] Fix GOTO/INT conflict
+    - [ ] add cmp_string small program 
 
 
 ## Architecture details
