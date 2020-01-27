@@ -1,21 +1,23 @@
-# electronics
-Electronic related projects
+# Electronics
+Electronics related projects
 
 ## Logisim
 Digital simuator of a digital circuits such as chips, processors, microcontrollers,etc ...  
 
 ### Appolo 181 4-bit processor
-The apollo181 is a home made processor created by [Gianluca G.](#https://apollo181.wixsite.com/apollo181)
 
-- **appolo.circ** : The digital circuit
-- **PROM**        : instruction set image as flashed in PROM
-- *dat*
-  - *programs* :
-    - **ADD**  : performs the basic addition of 2 integers
-    - **MULT** : mutliplication of 2 integers
-  - *out* : result file of execution of program as run by appolo 
-    - result_ADD : result processed by running program ADD  
-- *src*
-  - **compiler.py**    : compiles a program written in python
-  - **decode_hex.py**  : decode heaxdecimal instruction into human readable ascii instruction 
-  - **cmp_results.py** : compares results from out and expected output
+The apollo181 is a home made processor created by [Gianluca G.](https://apollo181.wixsite.com/apollo181).
+An inspired Logisim simulator version of has been developed and can be experimented
+[here](https://github.com/ronandrevon/electronics/tree/master/logisim/appolo181).
+
+
+### PIC16F84A
+
+The mictrocontroller PIC16F84A is a created by [Microchip Technology](https://en.wikipedia.org/wiki/Microchip_Technology).
+An inspired Logisim simulator version of this architecture is presented in 
+[here](https://github.com/ronandrevon/electronics/tree/master/logisim/PIC16F84A).
+
+
+### intel i8088
+
+Not started yet
