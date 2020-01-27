@@ -184,16 +184,20 @@ XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
 
 ## Examples
 ### Multiplcation
+A simple program to perform a short multiplication
 - [x] Multiplication program : 
     - [mult_test.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/mult_test.txt)
     - ADDWF, BSF, DECFSZ,BTFSC, GOTO
     - STATUS registers Z and C bits read during execution
 
 ### TTY
+A more advanced program simulating the basics of a terminal. User can interract with the CPU through a keyboard
+and the CPU outputs replies on the screen.
+
 - [ ] basic terminal program : 
     - [tty.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tty.txt)
-    - interrupts
-    - input output interaction, parse from keyboard and write to screen
+    - parse from keyboard and write to screen
+    - RBIF interrupt, input-output interaction, branching, ...
 
 - Fix : 
     - [x] data, interrupts, 2 level stack,parsing,comparing, reply pointer, output reply=bisou/Hello dependent on message
@@ -201,11 +205,11 @@ XORLW   | 11 1010kkkkkkkk|k  |Exclusive OR literal with W|Z
     - [x] Check ignore NULL character : proper if statement with jump if not 
     - [x] Fix INT error while PORTB output(pull-down fix put overwrite PORTB) : added memory latch checking state change
     - [x] Fix 68 instead 69 : move pull down from the port level to the interrupt level
+    - [x] Fix multi loop issue : Removed toggle EEIE latch for notEEIE when EGIE is on and fixed PC:13 to PC:0 in instruction decode
+    - [x] Fix GOTO/INT conflict : prevent int jump if branching instruction in instruction decode module
+    - [x] Include return carriage at the input screen : Keyboard and screen on falling edge
 
 - Minor improvment : 
-    - [ ] Fix multi loop issue
-    - [ ] Include return carriage at the input screen 
-    - [ ] Fix GOTO/INT conflict
     - [ ] add cmp_string small program 
 
 

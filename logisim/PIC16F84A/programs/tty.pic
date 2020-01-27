@@ -53,7 +53,8 @@ MOVWF INTCON
 BSF PORTA 3         #reset latch interrupt if already set
 BCF PORTA 3         #
 # let the program go forever while waiting for interrupts
-end:GOTO end
+end:NOP             #Necessart to allow for an interrupt to occur 
+GOTO end            #since they can not take place on a branching op
 ########################################################################
 #
 #
@@ -132,6 +133,7 @@ GOTO rep
 ##### Terminate and restore 
 BSF PORTA 3         # re-enable keyboard+shift register 
 BCF PORTA 3
+BCF PORTB 7         # Preventing RBIF 
 BCF INTCON 0        # clearing RBIF bit
 RETLW 0             # return indicating everything was ok
 #
