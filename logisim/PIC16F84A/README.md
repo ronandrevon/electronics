@@ -191,16 +191,32 @@ A simple program to perform a short multiplication
     - STATUS registers Z and C bits read during execution
 
 ### TTY
-A more advanced program simulating the basics of a terminal. User can interract with the CPU through a keyboard
-and the CPU outputs replies on the screen.
+A more advanced program simulating the basics of a terminal. 
+For this, make sure the program *programs/bin/tty.out* is loaded into the PIC Flash memory. 
+Then, open the circuit *tty.circ* :
 
-- [ ] basic terminal program : 
-    - [tty.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tty.txt)
-    - parse from keyboard and write to screen
-    - RBIF interrupt, input-output interaction, branching, ...
+    logisim tty.circ &
 
-- Fix : 
-    - [x] data, interrupts, 2 level stack,parsing,comparing, reply pointer, output reply=bisou/Hello dependent on message
+The usage sequence of this circuit is the following : 
+
+- The CPU initializes for about 30 instructions.
+- The user interacts with the CPU through the keyboard(**Ctrl+1 and click on the keyboard to enable typing**) parsing ASCII encoded characters.
+- Once the user presses **ENTER on the keyboard** (return carriage character) the CPU starts to interpret the last 4 characters.
+- The CPU stores the given string, analyses it and decides of an answer accordingly.
+- If the user message is **'Hi'+ENTER** then the CPU chooses 'Hello' for an answer, otherwise it picks something else.
+- The CPU outputs the answer to the screen.
+- The user can type another message.
+
+
+Basic terminal program implementation aspects : 
+
+- [tty.pic](file:///home/ronan/Documents/github/electronics/logisim/PIC16F84A/programs/links/tty.txt)
+- parse from keyboard and output to screen
+- RBIF interrupt
+- 2 level stack, input parsing, comparing, output reply
+- FSR loaded with an answer string address (stored in *reply*) determined at runtime (*reply=bisou* or *reply=Hello*)
+
+- Fixed : 
     - [x] Fix parsing first character parsing : falling edge on shift register
     - [x] Check ignore NULL character : proper if statement with jump if not 
     - [x] Fix INT error while PORTB output(pull-down fix put overwrite PORTB) : added memory latch checking state change

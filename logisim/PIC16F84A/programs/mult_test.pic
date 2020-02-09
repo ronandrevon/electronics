@@ -6,11 +6,13 @@
 ##################################################################################
 #initialize registers with selected operands : 
 ##  a*b=24*11=264   =   0x18*0xb=0x108
+NOP 
 MOVLW 24
 MOVWF a
-MOVLW 11
+MOVLW 4
 MOVWF b
 MOVWF i             # the counter starts at operand b
+CLRW
 CLRW
 # mulitplication loop
 loop:ADDWF a 0

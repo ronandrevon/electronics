@@ -1,16 +1,29 @@
 #! /usr/bin/python3
-import numpy as np
-import pandas as pd
-from glob_colors import*
-import os,sys
 '''
-   Program format : 
+Compiles a .pic text file and produces a .out binary file
+
+    EXAMPLE : 
+./compiler.py prog.pic -o prog_test.out -v -e
+
+./compiler.py *prog*.pic [-o *outfile*] [-e or --encode]  [-v or --verbose]
+    OPTIONS : 
+-o : specify the output file in *outfile*
+-e : show encoded information report 
+-v : additional info
+
+   Instruction types in .pic files : 
 byte     : op(str) address(<80) d(boolean)
 bit      : op(str) address(<80) bit(<8)
 jump     : op(str) address(<1024)
 literal  : op(str) data(<255)
 control  : op(str)
 '''
+
+import numpy as np
+import pandas as pd
+from glob_colors import*
+import os,sys
+
 PIC_folder=os.path.dirname(__file__)
 df_PROM=pd.read_pickle(PIC_folder+'/dat/PROM.pkl')
 instruction_type = df_PROM['type']
@@ -18,14 +31,15 @@ opcode  = df_PROM['opcode']
 SFR     = ['INDF','TMR0','OPTION','PCL','STATUS','FSR','PORTA','TRISA','PORTB','TRISB','EEDATA','EECON1','EEADR','EECON2','PCLATH','INTCON']
 
 #### def : main program
-def compile_program(program_file,v=False,e=False):
+def compile_program(program_file,v=False,e=False,o=None) : 
+    ''' obj_file = compile_program('file.pic')'''
     lines           = load_program(program_file)
     lines,lab,var   = preprocess_lines(lines,verbose)
     obj_str         = compile_lines(lines,lab,var,e)
-    obj_file        = write_out(program_file,obj_str)
+    obj_file        = write_out(program_file,obj_str,obj_file=o)
     return obj_file
 
-########
+''' Preprocessing stage '''
 def preprocess_lines(lines,verbose=False) : 
     var_dict = dict(zip(['INDF','PCL','STATUS','FSR','PCLATH','INTCON'],[0,2,3,4,10,11]))
     var_dict.update(dict(zip(['TMR0'  ,'TRISA','TRISB','EECON1','EECON2'],[1,5,6,8,9])))
@@ -33,7 +47,7 @@ def preprocess_lines(lines,verbose=False) :
     lines = [line.split("#")[0] for line in lines] # remove comments
     lines = [line for line in lines if line] # remove empty lines
     instructions_dat = []
-    ## check for variable 
+    ## check for variable from the end of the file 
     var,line,lc,lv = dict(),lines[-1],len(lines)-1,12
     while "=" in line : 
         var_name,vals   = line.split("=")
@@ -49,7 +63,6 @@ def preprocess_lines(lines,verbose=False) :
         lc-=1;line=lines[lc];
     lines = lines[:lc+1]
     var_dict.update(var)
-    instructions_dat += ['GOTO init']
     if verbose : 
         print(green+'   data section : '+black)
         print(yellow+'variables : '+blue,var,black)
@@ -81,6 +94,7 @@ def preprocess_lines(lines,verbose=False) :
         print(yellow+'instructions : '+red,np.unique([i.split(' ')[0] for i in instructions]),black)
         print(red+'\n'.join(map(lambda a,b:str(a)+' '+b,range(len(instructions)),instructions))+black);
     var_dict.update(var_tmp)
+    if 'init' in labels.keys() : instructions_dat += ['GOTO init']
     instructions+=instructions_dat
     return instructions,labels,var_dict
     
@@ -131,9 +145,9 @@ def compile_lines(lines,labels,var,e=False):
         obj_str += instr_hex+"\n"
     return obj_str
     
-def write_out(program_file,obj_str) : 
+def write_out(program_file,obj_str,obj_file=None) : 
     folder = os.path.dirname(os.path.realpath(program_file))
-    obj_file = folder+'/bin/'+os.path.basename(program_file).replace('.pic','.out')
+    if not obj_file : obj_file = folder+'/bin/'+os.path.basename(program_file).replace('.pic','.out')
     obj = open(obj_file,"w")
     obj.write("v2.0 raw\n")
     obj.write(obj_str)
@@ -143,16 +157,18 @@ def write_out(program_file,obj_str) :
 
 #### def : misc 
 def bin_s(x,fill=8):
+    ''' convert integer into filled binary string'''
     return format(int(x),'b').zfill(fill)
 
 ##################################################################
 ###### run 
 if __name__== '__main__':
-    args=sys.argv
+    args=sys.argv;
     if len(args) > 1: 
         program_file = args[1]
-        verbose = '-v' in args or '--verbose' in args
-        encode  = '-e' in args or '--encode' in args
-    else : 
-        program_file = PIC_folder+'/dat/test.apl'
-    obj_file=compile_program(program_file,v=verbose,e=encode)
+        verbose  = '-v' in args or '--verbose' in args
+        encode   = '-e' in args or '--encode' in args
+        outfile  = '-o' in args or '--outfile' in args
+    obj_file=''
+    if outfile : obj_file = args[(np.array(args)=='-o').argmax() + 1]
+    obj_file=compile_program(program_file,v=verbose,e=encode,o=obj_file)
