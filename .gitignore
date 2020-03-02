@@ -1,1 +1,5 @@
 *__pycache__/
+logisim/PIC16F84A/dat/tests
+logisim/tester
+logisim/extern
+spice
