@@ -23,5 +23,5 @@ An inspired Logisim simulator version of this architecture is presented in
 <!--
 The [intel i8088](https://github.com/ronandrevon/electronics/tree/master/logisim/intel8088.pdf)
 -->
-The [intel i8088](file:///home/ronan/Documents/git/github/electronics/logisim/i8088.pdf)
+The [intel i8088](file:///home/ronan/Documents/git/github/electronics/logisim/i8088/doc/i8088.pdf)
 is the second intel processor with x86 architecture.
